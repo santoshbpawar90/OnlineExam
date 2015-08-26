@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import manipal.onlineexam.admin.entity.AuditTrail;
 import manipal.onlineexam.admin.entity.TimeInterval;
 
 @Entity
@@ -41,6 +42,17 @@ public class StudentLogin {
 	List<TimeInterval> intervals;
 	
 	
+	@OneToMany(targetEntity=AuditTrail.class,mappedBy="login",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	List<AuditTrail> auditTrails;
+	
+	
+	
+	public List<AuditTrail> getAuditTrails() {
+		return auditTrails;
+	}
+	public void setAuditTrails(List<AuditTrail> auditTrails) {
+		this.auditTrails = auditTrails;
+	}
 	public List<TimeInterval> getIntervals() {
 		return intervals;
 	}
