@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<studentresult>
+	<student id="9">
+		<examid>E_002</examid>
+		<paperid>M_001</paperid>
+		<subjectid>ASP_001</subjectid>
+		<futureuse>future use</futureuse>
+		<questionAnswers>
+			<questionAnswer>
+				<questionId>45</questionId>
+				<anwser>2</anwser>
+			</questionAnswer>
+			<questionAnswer>
+				<questionId>46</questionId>
+				<anwser>4</anwser>
+			</questionAnswer>
+		</questionAnswers>
+	</student>
+</studentresult>

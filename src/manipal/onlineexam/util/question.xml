@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+<examDetail>
+	<examId>1</examId>
+	<examName>My Test</examName>
+	<subId>1</subId>
+	<subName>My Subject</subName>
+	<paperId>1</paperId>
+	<duration>30</duration>
+</examDetail>
+<quiz>
+	<title>MongoDB Quiz (01/09/2015)</title>
+	
+	<questions>
+		<question id="1">
+			<quizquestion>MongoDB is a </quizquestion>
+			<option1>Relational Database</option1>
+			<option2>Object Relational Database</option2>
+			<option3>Graph Database</option3>
+			<option4>Document Database</option4>
+			<correct>3</correct>
+		</question>
+
+		<question id="2">
+			<quizquestion>What is the name of MongoDB server ?</quizquestion>
+			<option1>mongoserver</option1>
+			<option2>mongod</option2>
+			<option3>mongodb</option3>
+			<option4>mongo</option4>
+			<correct>1</correct>
+		</question>
+
+		<question id="3">
+			<quizquestion>What is the name of MongoDB client ?</quizquestion>
+			<option1>mongo</option1>
+			<option2>mongod</option2>
+			<option3>mongodb</option3>
+			<option4>mongo-client</option4>
+			<correct>0</correct>
+		</question>
+	</questions>
+</quiz>
+
+
+<studentInfo>
+
+	<student id="1">
+		<studentName>Santosh Pawar</studentName>
+		<studUserName>sp</studUserName>
+		<studPass>sp</studPass>
+		<college>SNJB's COE</college>	
+	</student>
+	<student id="2">
+		<studentName>Ashok Paste</studentName>
+		<studUserName>ap</studUserName>
+		<studPass>ap</studPass>
+		<college>ABC</college>	
+	</student>
+	
+</studentInfo>
+
+</xml>

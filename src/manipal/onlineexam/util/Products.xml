@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Online Project.-->
+<xml>
+  <ExamDetails>
+    <SubjectName>Math</SubjectName>
+    <ExamName>Exam1</ExamName>
+    <ExamId>E1</ExamId>
+    <PaperId>P1</PaperId>
+    <subjectid>M1122</subjectid>
+     <Duration>M1122</Duration>
+    
+  </ExamDetails>
+  <Students>
+    <Student StudentId="2">
+      <Name>Ashok Pashte</Name>
+      <Password>abc2</Password>
+      <College>Modern College</College>
+    </Student>
+    <Student StudentId="6">
+      <Name>Kapil Koli</Name>
+      <UserName></UserName>
+      <Password>abc6</Password>
+      <College>Modern College</College>
+    </Student>
+  </Students>
+  <Questions>
+    <Question QuestionsId="9">
+      <QuestionName>What is median?&lt;br&gt;</QuestionName>
+      <Option1>abc</Option1>
+      <Option2>pqr</Option2>
+      <Option3>xyz</Option3>
+      <Option4>mno</Option4>
+    </Question>
+    <Question QuestionsId="10">
+      <QuestionName>What is 2*5^(4)&lt;img src="Image/cylinder.gif" alt="cylinder.gif" height="138" width="106"&gt;</QuestionName>
+      <Option1>11</Option1>
+      <Option2>21</Option2>
+      <Option3>33</Option3>
+      <Option4>50</Option4>
+    </Question>
+  </Questions>
+</xml>
