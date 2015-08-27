@@ -1,5 +1,7 @@
 package manipal.onlineexam.admin.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,21 +16,41 @@ public class AuditTrail {
 
 	@Id
 	@GeneratedValue
-	int audiId;
+	int auditId;
 	String event;
 	String qIdCentral;
 	String qIdClient;
-	
+	String option;
+	Date time;
+	 
 	@ManyToOne
 	@JoinColumn(name="stud_FK")
 	StudentLogin login;
 
-	public int getAudiId() {
-		return audiId;
+	
+
+	public Date getTime() {
+		return time;
 	}
 
-	public void setAudiId(int audiId) {
-		this.audiId = audiId;
+	public void setTime(Date time) {
+		this.time = time;
+	}
+
+	public String getOption() {
+		return option;
+	}
+
+	public void setOption(String option) {
+		this.option = option;
+	}
+
+	public int getAuditId() {
+		return auditId;
+	}
+
+	public void setAuditId(int auditId) {
+		this.auditId = auditId;
 	}
 
 	public String getEvent() {

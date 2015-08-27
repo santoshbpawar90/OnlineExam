@@ -12,7 +12,8 @@
 		<mapping class="manipal.onlineexam.admin.entity.User"/>	
 		<mapping class="manipal.onlineexam.student.entity.StudentLogin"/>
 		<mapping class="manipal.onlineexam.student.entity.QPack"/>	
-		<mapping class="manipal.onlineexam.admin.entity.TimeInterval"/>		
+		<mapping class="manipal.onlineexam.admin.entity.TimeInterval"/>	
+		<mapping class="manipal.onlineexam.admin.entity.AuditTrail"/>		
 			
 		
 		

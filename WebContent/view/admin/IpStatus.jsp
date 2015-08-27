@@ -195,7 +195,7 @@ for(QPack qPack:qPacks)
 								    InetAddress address = InetAddress.getByName(studentLogin.getIpAdd());
 								   out.print(address.getHostName());
 								   out.print("<BR>"+address.getHostAddress());
-								   out.print("<BR>"+address.getCanonicalHostName());
+								   //out.print("<BR>"+address.getCanonicalHostName());
 								    if(address.isReachable(10000)){
 								    	out.println("<b style='color: green;'>Active</b>" );
 								    }else{

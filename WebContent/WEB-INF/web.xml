@@ -33,7 +33,6 @@
     <servlet-name>StudentSubmitServlet</servlet-name>
     <url-pattern>/StudentSubmitServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>XmlServlet</servlet-name>
     <servlet-class>temp.XmlServlet</servlet-class>
