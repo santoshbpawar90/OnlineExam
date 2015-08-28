@@ -7,7 +7,34 @@
 	href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>instruction</title>
+<style type="text/css">
+@font-face {
+    font-family: myFirstFont;
+    src: url(../../fonts/Roboto-Regular.ttf);
+}
 
+@font-face {
+    font-family: myFirstFont;
+    src: url(../../fonts/Roboto-Bold.ttf);
+    font-weight: bold;
+}
+
+div {
+    font-family: myFirstFont;
+}
+
+
+
+body {
+background-image: url("../../images/background-image-instruction.jpg"); 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+    
+    
+}
+</style>
 <script type="text/javascript">
 function changeHashOnLoad() {
     window.location.href += "#";
@@ -39,43 +66,63 @@ String id=request.getParameter("user");
 %>
 
 <form name="instruction" method="post" action="../../ReadXml">
-	<div style="text-align: center;">
-		<div style="margin-left: 8%; width: 84%;height: auto;margin-top:1%;"  >
-			<!-- <div style="border: solid 2px;"><img alt="logo"  src="../../images/instructions.jpg"></div> -->
+<br><br>
+
+
 			
-			<table  style="text-align: center;width: 100%;"  >
-			
-			<tr >
-					<td align="left" ><h3 style="color: blue;"><b> Please read the following instructions carefully . . .<b></h3> </td>
-			
-			</tr>
-			
-		
-<tr align="left"><td><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.You have to write this exam in one sitting and no breaks are allowed in between </h5></td></tr>
-<tr align="left"><td ><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.	If you have any doubt anywhere, please call the exam supervisor too seek possible assistance</h5></td></tr>
-<tr align="left"><td ><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.	During the exam, do not read aloud either the questions or the answers</h5></td></tr>
-<tr align="left"><td ><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.	You are not supposed to mishandle the computer equipment during the exam</h5></td></tr>
-<tr align="left"><td "><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.	You can press SUBMIT button once you are done with the exam</h5></td></tr>
-<tr align="left"><td ><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.	The exam would end automatically once the allowed duration is completed</h5></td></tr>
-<tr align="left"><td ><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.	Please attempt all questions in the Exam</h5></td></tr>
-<tr align="left"><td ><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.	You can review your answers during the exam and modify anytime</h5></td></tr>
-<tr align="left"><td ><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9. There are no negative marks in the exam</h5></td></tr>
-<tr align="left"><td ><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10. If any malpractice is noticed, the Exam supervisor has authority to stop your exam and may ask you to leave the exam center</h5></td></tr>
-<tr align="left"><td ><h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11. During the exam, you are not supposed to indulge in any other activities like discussing, disturbing others etc.</h5></td></tr>
-<tr><td align="left"><b><h3 style="color: blue;">All the best for your exam!!</h3></b> </td></tr>
-<tr><td align="center" style="padding: 1%;"><b><h5 style="color: blue;"><input type="checkbox" required="required">&nbsp;&nbsp;I have read the above instructions completely and agree to them</b> </td></tr>
-	</table>
-			
-		</div>
-		
-		<div style="margin-top: 1%;">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="col-md-10 col-md-offset-1">
+  <div class="panel panel-default" style="background-color: rgba(245, 245, 245, 0.3); border-color: ">
+  <div class="panel-heading" style="background-image: url('../../images/background-image-header-instruction.jpg'); background-size: cover;  ">
+  
+  <h5 class="panel-title"><img src="../../images/icon-instructions.png" class="img-circle"  width="50" height="50"><b style="color: #009999; font-size: x-large;">&nbsp;&nbsp;&nbsp;&nbsp;Please read the following instructions carefully</b></h5>
+  </div>
+  <div class="panel-body" >
+  
+  <p class="text-primary">You have to write this exam in one sitting and no breaks are allowed in between </p>
+  <p class="text-primary">If you have any doubt anywhere, please call the exam supervisor too seek possible assistance</p>
+  <p class="text-primary">During the exam, do not read aloud either the questions or the answers </p>
+  <p class="text-primary">You are not supposed to mishandle the computer equipment during the exam</p>
+  <p class="text-primary">You can press <b> SUBMIT </b>button once you are done with the exam </p>
+  <p class="text-primary">The exam would end automatically once the allowed duration is completed</p>
+  <p class="text-primary">Please attempt all questions in the Exam</p>
+  <p class="text-primary">You can review your answers during the exam and modify anytime </p>
+  <p class="text-primary">There are no negative marks in the exam </p>
+  <p class="text-primary">If any malpractice is noticed, the Exam supervisor has authority to stop your exam and may ask you to leave the exam center </p>
+  <p class="text-primary">During the exam, you are not supposed to indulge in any other activities like discussing, disturbing others etc. </p>
+  
+  </div>
+  
+  <div class="radio" align="center">
+  <img src="../../images/icon-yes.png" class="img-circle"  width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>	<input type="radio" required="required" name="optradio">&nbsp;&nbsp; I have read the above instructions completely and agree to them</label>
+  </div>
+  <div align="center"> 
+  <input type="submit" value="Start  Exam" class="btn btn-lg btn-success" style="font-weight:bolder;font-size: large;"  >
+  </div>
+  </div>
+  </div>
+
+
+
+
+
 
 						<input type="hidden" name="id" value="<%=id%>">
 			
-						<input type="submit" value="Start  Exam" class="btn btn-primary" style="font-weight:bolder;font-size: large;">
-		</div>
-		<br>
-	</div>
+		
+	
 	</form>
 </body>
 </html>

@@ -1,17 +1,17 @@
 package manipal.onlineexam.student.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import manipal.onlineexam.admin.dao.TrailDao;
+import manipal.onlineexam.admin.entity.Trail;
 import manipal.onlineexam.student.dao.QPackDao;
 import manipal.onlineexam.student.dao.StudentLoginDao;
 import manipal.onlineexam.student.entity.QPack;
@@ -43,6 +43,12 @@ public class StudentLoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
+		
+		
+		
 		
 		String userName="";
 		String pass="";
@@ -80,10 +86,19 @@ public class StudentLoginServlet extends HttpServlet {
 				QPack qPack= login.getPack();
 			
 				
+				
+				
 			
 				
 				//====================================
 				
+				Trail trail=new Trail();
+				trail.setMyEvent("Logged In");
+				trail.setMyDate(new Date());
+				trail.setStudentLogin(login);
+				
+				TrailDao dao=new TrailDao();
+				dao.addTrail(trail);
 				
 				
 			}

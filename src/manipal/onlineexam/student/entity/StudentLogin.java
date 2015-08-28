@@ -12,8 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import manipal.onlineexam.admin.entity.AuditTrail;
+import manipal.onlineexam.admin.entity.Ans;
 import manipal.onlineexam.admin.entity.TimeInterval;
+import manipal.onlineexam.admin.entity.Trail;
 
 @Entity
 public class StudentLogin {
@@ -33,6 +34,8 @@ public class StudentLogin {
 	String resPath;
 	String ipAdd;
 	String macAdd;
+	String divMain;
+	String divMenu;
 	
 	@ManyToOne
 	@JoinColumn(name="qPack_FK")
@@ -42,17 +45,39 @@ public class StudentLogin {
 	List<TimeInterval> intervals;
 	
 	
-	@OneToMany(targetEntity=AuditTrail.class,mappedBy="login",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
-	List<AuditTrail> auditTrails;
+	@OneToMany(targetEntity=Trail.class,mappedBy="studentLogin",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	List<Trail> trails;
 	
+
+	@OneToMany(targetEntity=Ans.class,mappedBy="studentLog",fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	List<Ans> ans;
+
 	
-	
-	public List<AuditTrail> getAuditTrails() {
-		return auditTrails;
+	public List<Ans> getAns() {
+		return ans;
 	}
-	public void setAuditTrails(List<AuditTrail> auditTrails) {
-		this.auditTrails = auditTrails;
+	public void setAns(List<Ans> ans) {
+		this.ans = ans;
 	}
+	public List<Trail> getTrails() {
+		return trails;
+	}
+	public void setTrails(List<Trail> trails) {
+		this.trails = trails;
+	}
+	public String getDivMain() {
+		return divMain;
+	}
+	public void setDivMain(String divMain) {
+		this.divMain = divMain;
+	}
+	public String getDivMenu() {
+		return divMenu;
+	}
+	public void setDivMenu(String divMenu) {
+		this.divMenu = divMenu;
+	}
+	
 	public List<TimeInterval> getIntervals() {
 		return intervals;
 	}

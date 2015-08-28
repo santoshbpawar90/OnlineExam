@@ -10,81 +10,66 @@ import javax.persistence.ManyToOne;
 
 import manipal.onlineexam.student.entity.StudentLogin;
 
-
 @Entity
-public class AuditTrail {
+public class Trail {
 
 	@Id
 	@GeneratedValue
-	int auditId;
-	String event;
+	int id;
+	String myEvent;
 	String qIdCentral;
 	String qIdClient;
-	String option;
-	Date time;
-	 
+	String optionNo;
+	Date myDate;
+	
 	@ManyToOne
 	@JoinColumn(name="stud_FK")
-	StudentLogin login;
-
+	StudentLogin studentLogin;
 	
-
-	public Date getTime() {
-		return time;
+	
+	
+	public StudentLogin getStudentLogin() {
+		return studentLogin;
 	}
-
-	public void setTime(Date time) {
-		this.time = time;
+	public void setStudentLogin(StudentLogin studentLogin) {
+		this.studentLogin = studentLogin;
 	}
-
-	public String getOption() {
-		return option;
+	public int getId() {
+		return id;
 	}
-
-	public void setOption(String option) {
-		this.option = option;
+	public void setId(int id) {
+		this.id = id;
 	}
-
-	public int getAuditId() {
-		return auditId;
+	public String getMyEvent() {
+		return myEvent;
 	}
-
-	public void setAuditId(int auditId) {
-		this.auditId = auditId;
+	public void setMyEvent(String myEvent) {
+		this.myEvent = myEvent;
 	}
-
-	public String getEvent() {
-		return event;
-	}
-
-	public void setEvent(String event) {
-		this.event = event;
-	}
-
 	public String getqIdCentral() {
 		return qIdCentral;
 	}
-
 	public void setqIdCentral(String qIdCentral) {
 		this.qIdCentral = qIdCentral;
 	}
-
 	public String getqIdClient() {
 		return qIdClient;
 	}
-
 	public void setqIdClient(String qIdClient) {
 		this.qIdClient = qIdClient;
 	}
-
-	public StudentLogin getLogin() {
-		return login;
+	public String getOptionNo() {
+		return optionNo;
 	}
-
-	public void setLogin(StudentLogin login) {
-		this.login = login;
+	public void setOptionNo(String optionNo) {
+		this.optionNo = optionNo;
 	}
-	
+	public Date getMyDate() {
+		return myDate;
+	}
+	public void setMyDate(Date myDate) {
+		this.myDate = myDate;
+	}
 	
 	
 	

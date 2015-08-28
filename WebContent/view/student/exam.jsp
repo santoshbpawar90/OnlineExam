@@ -2,779 +2,74 @@
     pageEncoding="ISO-8859-1"%>
     <%@page import="java.util.ArrayList"%>
     <%@page import="manipal.onlineexam.util.QuestionClass"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<!--------------------------------------------css start------------------------------------>
+<!DOCTYPE html |>
+<html  style="height: 98%; ">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script type="text/javascript" src="js/exambuttonsevent.js">  </script>
+<script type="text/javascript" src="js/css-pop.js"></script>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<title>Exam Paper</title>
 <link href="css/styles.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<style type="text/css">
 
-<!-- <link href="css/popuperror.css" rel="stylesheet" type="text/css" /> -->
-<!--------------------------------------------css end------------------------------------>
 
-<!--------------------------------------------script start------------------------------------>
 
-     <!-----pop up---------------->   <script type="text/javascript" src="js/css-pop.js"></script>
-     <!-----Full screen----------->   <script type="text/javascript" src="js/fullscreen2.js"></script>
-     <!-----function Keys--------->   <script type="text/javascript" src="js/disablekeys.js"> </script>
-      <script type="text/javascript" src="js/disableControlCombination.js">  </script> 
-     
-     
-     <script type="text/javascript">
-     
-   
-     var AuditArr=[];
-     function auditTrail()
-     {
-     	
-     
-     	var	qid=document.getElementById("hdnQId"+prevId).value;
-     	//alert("actual qution id---"+qid);
-     	
-     var op=document.getElementsByName("option"+prevId);
-     	var tempVal=0;
-     	 if(op!=null)
-     		{
-     		
-     		for(var i=0;i<op.length;i++)
-     			{
-     				if(op[i].checked==true)
-     				{
-     					//alert("option checked=="+op[i].value);
-     					tempVal=op[i].value;
-     					
-     					
-     					break;
-     				}
-     			}
-     		}
-     		
-     		var time=document.getElementsByName("option").innerHTML = Date(); 
-     		//alert(time);
-     	
-     		var con=("  || Question -->  ")+qid.concat("  Ans -->  "+tempVal," Time -->  "+time);
-     		//alert(con);
-     		
-     		// var AuditArr=[];
-     		 AuditArr.push(con);
-     		 
-     		var insert= document.getElementsByName("option"+prevId).innerHTML = AuditArr;
-     		 // alert(insert);
-     		 
-     		console.log(insert);
-     	}
-     
-     
-     
-     </script>
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(fonts/Roboto-Bold.ttf);
+    font-weight: bold;
+}
+
+div {
+    font-family: myFirstFont;
+}
+
+
+</style>
 
 <script>
-
-function timeupsubmit(){
-	
-	document.getElementById('submitbutton').click();
-	
-}
-
-function changeHashOnLoad() {
-    window.location.href += "#";
-    setTimeout("changeHashAgain()", "50"); 
-}
-
-function changeHashAgain() {
- window.location.href += "1";
-}
-
-var storedHash = window.location.hash;
-window.setInterval(function () {
-   if (window.location.hash != storedHash) {
-        window.location.hash = storedHash;
-   }
-}, 50);
-
-
-
-
-var seconds = 60 ;
-
-function calRes(){
-	
-	
-var arrQuOp=[[],[]];	
-	
-var	totalquestion=document.getElementById('count').value;
-for(var i=1;i<=totalquestion;i++){
-	var qId=document.getElementById("hdnQId"+i).value;
-	var op=document.getElementsByName("option"+i);
-	if(op!=null)
-	for(var j=0;j<op.length;j++)
-		{
-			if(op[j].checked==true)
-			{
-				console.log(i+"=> q="+ qId+", option checked=="+op[j].value);	
-				if(qId!="" && qId!=0 && op[j].value!="" )
-				arrQuOp.push(qId,op[j].value);
-				break;
-			}
-		}
-	//alert("Are you sure you want to submit exam ?")
-	console.log("array"+arrQuOp);
-	document.getElementById("finalanwser").value=arrQuOp;
-	
-	/* document.examForm.action="../../StudentSubmitServlet";
-	document.examForm.submit();  */
-}
-
-
-	
-}
-
-function profilrpopup(){
-	var myWindow = window.open("", "", "left=500,top=200 ,width=300 , height=300 , scrollbars=yes");
-	var uname=document.getElementById("username").value;
-	var subject=document.getElementById("subject").value;
-	var college=document.getElementById("college").value;
-	var time=document.getElementById("timegiven").value;
-	var examId=document.getElementById("examId").value;
-	var paperId=document.getElementById("paperId").value;
-	var subId=document.getElementById("subId").value;
-	var studId=document.getElementById("studId").value;
-	
-	
-	
-	
-	myWindow.document.write("<div> <table ><tr><td>Student Id:</td>&nbsp;<td>"+studId.fontcolor("green")+"</td></tr>");
-	myWindow.document.write("<tr><td>Username:</td>&nbsp;<td>"+uname.fontcolor("green")+"</td></tr>");
-	myWindow.document.write("<tr><td>subject:</td>&nbsp;<td>"+subject.fontcolor("green")+"</td></tr>");
-	myWindow.document.write("<tr><td>College:</td>&nbsp;<td>"+college.fontcolor("green")+"</td></tr>");
-	myWindow.document.write("<tr><td>Total Time:</td>&nbsp;<td>"+time.fontcolor("green")+"</td></tr>");
-	myWindow.document.write("<tr><td>Exam Id:</td>&nbsp;<td>"+examId.fontcolor("green")+"</td></tr>");
-	myWindow.document.write("<tr><td>Paper Id:</td>&nbsp;<td>"+paperId.fontcolor("green")+"</td></tr>");
-	myWindow.document.write("<tr><td>Subject Id:</td>&nbsp;<td>"+subId.fontcolor("green")+"</td></tr></table></div>");
-	
-	
-}
-
-function questionpopup(dname) {
-  
-}
-
-var prevId=0;
-function markandreview(){
-
-	
-	console.log("prevId="+prevId);
-	if(prevId==0)
-	{
-		prevId=1;
-	}
-	var para=document.getElementById("btn"+prevId);	
-	if(para!=null)
-	{
-		para.setAttribute('class', 'btnper');	
-		
-		saveQidOption('mark');
-	}
-	
-	
-	if(document.getElementById(prevId)!=null)
-	{
-		document.getElementById(prevId).style.display = "none";
-	}	
-			
-		  prevId=parseFloat(prevId)+1;
-		  var temp=document.getElementById(prevId);
-		  if(temp!=null)
-			  {
-			  temp.style.display = "block";	  
-			  
-			  }
-
-			console.log("prev="+prevId);
-		  var count= document.getElementById("count");
-		  
-		  if(count!=null)
-			 {
-			  var c=parseFloat(count.value)+1;
-			  console.log("count.value="+c);
-			 
-			 	if(prevId==c)
-			 		{
-			 			prevId=1;
-			 			  var temp1=document.getElementById(prevId);
-			 			  if(temp1!=null)
-			 				  {
-			 				  temp1.style.display = "block";	  
-			 				  
-			 				  }
-			 		}
-			  }
-	
-	
-	
-}
-
-function saveQidOption(callFrom){
-	console.log("prevId="+prevId+" Call from="+callFrom);
-	if(prevId==0)
-	{
-		prevId=1;
-	}
-	var	qid=document.getElementById("hdnQId"+prevId).value;
-	console.log("actual qution id---"+qid);
-	
-	var flag=false;
-	var tempVal=0;
-	var op=document.getElementsByName("option"+prevId);
-	console.log("val="+op);
-	if(op!=null)
-		{
-		
-		for(var i=0;i<op.length;i++)
-			{
-				if(op[i].checked==true)
-				{
-					console.log("option checked=="+op[i].value);
-					tempVal=op[i].value;
-					flag=true;
-					break;
-				}
-			}
-		
-		
-		}
-	
-	if(flag==false && callFrom!="mark")
-		{
-		alert("Please select anwser.");
-		//console.log("href..");
-		 //document.getElementById('myHref').click();
-		}
-	else if(callFrom=="save")
-		{
-		savenext();
-		}
-	
-		
-}
-
-
-function savenext(){
-	console.log("prevId="+prevId);
-	if(prevId==0)
-	{
-		prevId=1;
-	}
-	var para=document.getElementById("btn"+prevId);	
-	if(para!=null)
-	{
-		para.setAttribute('class', 'btngrn');	
-		
-		saveQidOption();
-	}
-	
-	
-	if(document.getElementById(prevId)!=null)
-	{
-		document.getElementById(prevId).style.display = "none";
-	}		
-		  prevId=parseFloat(prevId)+1;
-		  var temp=document.getElementById(prevId);
-		  if(temp!=null)
-			  {
-			  temp.style.display = "block";	  
-			  
-			  }
-
-			console.log("prev="+prevId);
-		  var count= document.getElementById("count");
-		  
-		  if(count!=null)
-			 {
-			  var c=parseFloat(count.value)+1;
-			  console.log("count.value="+c);
-			 
-			 	if(prevId==c)
-			 		{
-			 			prevId=1;
-			 			  var temp1=document.getElementById(prevId);
-			 			  if(temp1!=null)
-			 				  {
-			 				  temp1.style.display = "block";	  
-			 				  
-			 				  }
-			 		}
-			  }
-	
-	
-}
-
-
-function clearR(){
-
-	console.log("prevId="+prevId);
-	if(prevId==0)
-	{
-		prevId=1;
-	}
-	var para=document.getElementById("btn"+prevId);	
-	para.setAttribute('class', 'btnred');
-	
-	
-	var	qid=document.getElementById("hdnQId"+prevId).value;
-	console.log("actual qution id---"+qid);
-	
-	var flag=false;
-	var tempVal=0;
-	var op=document.getElementsByName("option"+prevId);
-	console.log("val="+op);
-	if(op!=null)
-		{
-		
-		for(var i=0;i<op.length;i++)
-			{
-				if(op[i].checked==true)
-				{
-					op[i].checked=false;
-					console.log("option checked=="+op[i].value);
-					tempVal=op[i].value;
-					flag=true;
-					break;
-				}
-			}
-		
-		
-		}
-	
-	
-}
-
-/* var tim;
-
-var min=0;
-console.log("time--"+min)
-var sec = 60;
-var f = new Date();
- function f1() {
-	 if(document.getElementById("timegiven")!=null)
-		{
-			min=document.getElementById("timegiven").value;	
-		}
-	console.log("min="+min);
-    f2(min);
-    document.getElementById("starttime").innerHTML = "Your started your Exam at " + f.getHours() + ":" + f.getMinutes();
-     
-  
-} 
-
-
-function f2(min) {
-	
-    if (parseInt(sec) > 0) {
-        sec = parseInt(sec) - 1;
-        document.getElementById("showtime").innerHTML = "Your Left Time  is :"+min+" Minutes ," + sec+" Seconds";
-        tim = setTimeout("f2()", 1000);
-    }
-    else {
-        if (parseInt(sec) == 0) {
-            min = parseInt(min) - 1;
-            if (parseInt(min) == 0 && parseInt(sec)==0)
-            	{
-            	 popup('popsubmit');
-            	}          
-            else if (parseInt(min) == 0) {
-                clearTimeout(tim);
-                location.href = "default5.aspx";
-            }
-            else {
-                sec = 60;
-                document.getElementById("showtime").innerHTML = "Your Left Time  is :" + min + " Minutes ," + sec + " Seconds";
-                tim = setTimeout("f2()", 1000);
-            }
-        }
-       
-    }
-}
- */
-
- var countdownTimer =null;
-function initTime() {
-	var	totalMinuteGivenByAdmin=document.getElementById("timegiven").value;
-	console.log("totalminutegivenbyadmin=="+totalMinuteGivenByAdmin);
-	seconds=seconds*parseFloat(totalMinuteGivenByAdmin);
-	 countdownTimer = setInterval('timer()', 1000);
-	//timer();
-	
-}
-
-function timer() {
-	
-	
-	
-	
-    var minutes = Math.round((seconds - 30)/60);
-    var remainingSeconds = seconds % 60;
-    if (remainingSeconds < 10) {
-        remainingSeconds = "0" + remainingSeconds;  
-    }
-    document.getElementById("time").innerHTML = minutes + ":" + remainingSeconds;
-    
-    if (remainingSeconds == 0 && minutes==0) {
-    	
-        clearInterval(countdownTimer);
-        popup('popsubmit');
-    } else {
-        seconds--;
-    }
-}
-
-
- 
- 
-
-	function start() {
-		var totalQuestion = document.getElementById("count").value;
-		for (var i = 1; i <= totalQuestion; i++) {
-			var para = document.createElement("input");
-			para.type = "button";
-			para.style = "width: 35px;height: 30px;"
-			para.value = i;
-			para.id = i;
-			para.setAttribute('onclick', 'clickButton(this.value)');
-			para.setAttribute('class', 'btnwhite');
-			para.setAttribute('id', 'btn'+i);
-			document.getElementById("questionMenu").appendChild(para);
-			document.getElementById("questionMenu").innerHTML += '   ';
-
-			
-		}
-
-	}
-	function clickButton(id) {
-		console.log("prevId="+prevId);
-
-		if(prevId==0)
-		{
-			prevId=1;
-		}
-		if(document.getElementById(prevId)!=null)
-		{
-			document.getElementById(prevId).style.display = "none";	
-			
-			var clr	=document.getElementById("btn"+prevId);
-			console.log("clr="+clr);
-			if(clr!=null)
-			{
-				var bgColor=clr.className;
-				console.log("bgColor="+bgColor);
-				if(bgColor!="btngrn" && bgColor!="btnper")
-					{
-					clr.setAttribute('class', 'btnred');
-					}
-				
-			} 
-		}
-		
-		document.getElementById(id).style.display = "block";
-		prevId=id;
-		
-	}
-	
-	function instructionpopup(){
-		var txt="Please read the following instructions carefully.....";
-		var txt1="All the best for your exam!!";
-		
-		var myWindow = window.open("", "", "left=200,top=10 ,width=900 , height=700 , scrollbars=yes,text-align: center");
-		myWindow.document.write("<div font-family: Arial, Helvetica, sans-serif >");
-		myWindow.document.write("<p>" + txt.fontsize(5) + "</p>");
-		myWindow.document.write("<p>1.	You have to write this exam in one sitting and no breaks are allowed in between</p>");
-		myWindow.document.write("<p>2.	If you have any doubt anywhere, please call the exam supervisor too seek possible assistance</p>");
-		myWindow.document.write("<p>3.	During the exam, do not read aloud either the questions or the answers</p>");
-		myWindow.document.write("<p>4.	You are not supposed to mishandle the computer equipment during the exam</p>");
-		myWindow.document.write("<p>5.	You can press SUBMIT button once you are done with the exam</p>");
-		myWindow.document.write("<p>6.	The exam would end automatically once the allowed duration is completed</p>");
-		myWindow.document.write("<p>7.	Please attempt all questions in the Exam.</p>");
-		myWindow.document.write("<p>8.	You can review your answers during the exam and modify anytime</p>");
-		myWindow.document.write("<p>9.	There are no negative marks in the exam</p>");
-		myWindow.document.write("<p>10.	If any malpractice is noticed, the Exam supervisor has authority to stop your exam and may ask you to leave the exam center</p>");
-		myWindow.document.write("<p>11.	During the exam, you are not supposed to indulge in any other activities like discussing, disturbing others etc.</p>");
-		myWindow.document.write("<p>" + txt1.fontsize(5) + "</p>");
-		
-
-	}
-
-	
-	
+$(document).ready(function(){
+		$("#divmain").css({"position":"fixed", "right":"2px"});
+		$("#divmenu").css({"position":"fixed", "left":"2px"});
+});
 </script>
-
-<!--------------------------------------------script end------------------------------------>
-<head>
-<style>
-<!------------------------------------popuperror start--------------------------------------->
-body {
-  font-family: Arial, sans-serif;
-  background: url(4.jpg);
-  background-size: cover;
-}
-
-h1 {
-  text-align: center;
-  font-family: Tahoma, Arial, sans-serif;
-  color: orange;
-  margin: 100px 0;
-}
-
-.box {
-  width: 20%;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.2);
-  padding: 35px;
-  border: 2px solid #fff;
-  border-radius: 20px/50px;
-  background-clip: padding-box;
-  text-align: center;
-}
-
-.button {
-  font-size: 1em;
-  padding: 10px;
-  color: #fff;
-  border: 2px solid orange;
-  border-radius: 20px/50px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-}
-.button:hover {
-  background: orange;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-}
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popuperror {
-  margin: 70px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 5px;
-  width: 30%;
-  position: relative;
-  transition: all 5s ease-in-out;
-}
-
-.popuperror h2 {
-  margin-top: 0;
-  color: #333;
-  font-family: Tahoma, Arial, sans-serif;
-}
-.popuperror .close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  transition: all 200ms;
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #333;
-}
-.popuperror .close:hover {
-  color: orange;
-}
-.popuperror .content {
-  max-height: 30%;
-  overflow: auto;
-}
-<!------------------------------------popuperror end--------------------------------------->
-div.fixedheder {
-border-radius: 15px;
-     position: fixed;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height:10%;
-    border: 3px solid #606060;"
-}
-div.fixedmain {
-border-radius: 15px;
-background-color:#F0F0F0;
-     position: fixed;
-    top: 11%;
-    left: 0.5%;
-    width: 69.5%;
-    height:73.7%;
-    border: 2px solid #606060;"
-}
-div.fixedmenu {
-border-radius: 15px;
-     position: fixed;
-    bottom:0.5%;
-    right: 0.5%;
-    width: 29%;
-    height:88%;
-    border: 2px solid #606060;"
-}
-div.fixedfooter {
-     border-radius: 15px;
-    position: fixed;
-    bottom: 0.5%;
-    left: 0.5%;
-    width: 69.5%;
-    height:14%;
-    border: 2px solid #606060;
-}
-
-.btnper {
- background: #d9a8fa;
-  background-image: -webkit-linear-gradient(top, #d9a8fa, #76497d);
-  background-image: -moz-linear-gradient(top, #d9a8fa, #76497d);
-  background-image: -ms-linear-gradient(top, #d9a8fa, #76497d);
-  background-image: -o-linear-gradient(top, #d9a8fa, #76497d);
-  background-image: linear-gradient(to bottom, #d9a8fa, #76497d);
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 16px;
-  padding: 6px 6px 6px 6px;
-  text-decoration: none;
-    font-weight:bolder;
-}
-
-.btngrn {
-background: #84fa84;
-  background-image: -webkit-linear-gradient(top, #84fa84, #408c67);
-  background-image: -moz-linear-gradient(top, #84fa84, #408c67);
-  background-image: -ms-linear-gradient(top, #84fa84, #408c67);
-  background-image: -o-linear-gradient(top, #84fa84, #408c67);
-  background-image: linear-gradient(to bottom, #84fa84, #408c67);
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
-  font-family: Arial;
-  color: #fff7ff;
-  font-size: 16px;
-  padding: 6px 6px 6px 6px;
-  text-decoration: none;
-    font-weight:bolder;
-}
-
-.btnwhite {
-  background: #008db8;
-  background-image: -webkit-linear-gradient(top, #008db8, #80f5f5);
-  background-image: -moz-linear-gradient(top, #008db8, #80f5f5);
-  background-image: -ms-linear-gradient(top, #008db8, #80f5f5);
-  background-image: -o-linear-gradient(top, #008db8, #80f5f5);
-  background-image: linear-gradient(to bottom, #008db8, #80f5f5);
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
-  font-family: Arial;
-  color: #000000;
-  font-size: 16px;
-  padding: 6px 8px 6px 8px;
-  text-decoration: none;
-    font-weight:bolder;
-}
-.btnred {
- background: #ffcccc;
-  background-image: -webkit-linear-gradient(top, #ffcccc, #ffa1a1);
-  background-image: -moz-linear-gradient(top, #ffcccc, #ffa1a1);
-  background-image: -ms-linear-gradient(top, #ffcccc, #ffa1a1);
-  background-image: -o-linear-gradient(top, #ffcccc, #ffa1a1);
-  background-image: linear-gradient(to bottom, #ffcccc, #ffa1a1);
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
-  font-family: Arial;
-  color: #000000;
-  font-size: 16px;
-  padding: 6px 8px 6px 8px;
-  text-decoration: none;
-    font-weight:bolder;
-}
-.btn {
-background: #0074c2;
-  background-image: -webkit-linear-gradient(top, #0074c2, #000000);
-  background-image: -moz-linear-gradient(top, #0074c2, #000000);
-  background-image: -ms-linear-gradient(top, #0074c2, #000000);
-  background-image: -o-linear-gradient(top, #0074c2, #000000);
-  background-image: linear-gradient(to bottom, #0074c2, #000000);
-  -webkit-border-radius: 13;
-  -moz-border-radius: 13;
-  border-radius: 13px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 16px;
-  padding: 6px 8px 6px 8px;
-  font-weight:bolder;
-  
-  }
-
-.btn:hover {
-  text-decoration: none;
-}
-p.qbox{
-    border-style: dotted;
-    border-width: 1px;
-  
-}
-</style>
-    
-   
-    <script type="text/javascript">
-    	function chkSubmit() {
-    		
-    		//var res=confirm("Are You Sure You Want To Submit.");
-    		var res=true;
-    		return res;
-			
-		}
-    </script>   
 
 
 </head>
-<body onload="start();popup('popUpDiv')"  onkeypress="return disableCtrlKeyCombination(event);" onkeydown="return disableCtrlKeyCombination(event);">
-<form name="examForm" id="examForm" onmousemove="changeHashOnLoad();" method="post" action="StudentSubmitServlet" onsubmit="return chkSubmit()">
-<!--------------------------------------------outer most div start------------------------------------>
-<div  class="outermost" style=" border-radius: 25px;  position: fixed;height:98.5% ;width:99%; top:0%;left: 0%; font-family: Arial, Helvetica, sans-serif;" >
+<!------------------body start------------------------>
+<body style="height: 100%;" onload="start();popup('popUpDiv')">
+<!------------------form start------------------------>
+<form  style="height: 100%" method="post" action="StudentSubmitServlet" onsubmit="return chkSubmit()">
+<!------------------panel-full-page start------------------------>
+<div class="container-fluid" style="height: 100%;" >
 
-<!--------------------------------------------header start-------------------------------------------->
 
-<div style="border-radius: 15px;
-     position: fixed;
-    top: 0.5%;
-    left: 0.5%;
-    width: 98.8%;
-    height:10%;
-    border: 2px solid #606060;">
-<br>
-<img src="images/ManipalTechnologieslogo.png" style="position: fixed;height:9% ; top:1.5%;left: 4%; " >
 
-<div style="position: fixed; top:4%; left: 80%; ">Time Left:&nbsp; <span id="time" style="color: red;"></span></div>
+
+
+<!------------------panel-default start------------------------>
+<div class="panel panel-default col-md-9 col-sm-9 " style="padding: 0%;height: 99%; " id="divmain">
+<!------------------panel-heading start------------------------>
+<div class="panel-heading" style=" padding-left: 1%; background-image: url('images/head-exam.jpg'); background-size: cover;  ">
+<div class="panel-title"><img src="images/icons-online-exam.jpg" class="img-circle"  width="80" height="75"><b style="color: #009999; font-size: xx-large;">&nbsp;&nbsp;Exam Portal</b></div>
 
 </div>
-<!--------------------------------------------header end------------------------------------>
-
-<!--------------------------------------------main start------------------------------------>
-<div class="fixedmain">
-<br>
-
-<br>
-<br>
-
-<% ArrayList<QuestionClass> questions=(ArrayList<QuestionClass>) request.getAttribute("qlist"); 
+ <!------------------panel-body start------------------------>
+ <div class="panel-body" style="display: block; height: 76%;" >
+ 
+ <!---------------------------panel-question-anwser start------------------------------->
+ <div class="panel-question-anwser">
+  <% ArrayList<QuestionClass> questions=(ArrayList<QuestionClass>) request.getAttribute("qlist"); 
 		int count=0;
 		if(questions!=null)
 		for(QuestionClass ques:questions)
@@ -809,7 +104,7 @@ p.qbox{
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 A.&nbsp;&nbsp;&nbsp;
 
-<input id="op<%=count %>" type="radio" name="option<%=count %>" value="1" onclick="auditTrail()">
+<input id="Option " type="radio" name="option<%=count %>" value="1" onclick="save(this);">
  <%=ques.getOption1() %>
 						</td>
 						</tr>
@@ -820,7 +115,7 @@ A.&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;						
 B.&nbsp;&nbsp;&nbsp;						
-<input id="op<%=count %>" type="radio"  name="option<%=count %>" value="2" onclick="auditTrail()">
+<input id="Option" type="radio"  name="option<%=count %>" value="2" onclick="save(this);">
  <%=ques.getOption2() %>
 						</td>
 						</tr>
@@ -831,7 +126,7 @@ B.&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;						
 C.&nbsp;&nbsp;&nbsp;						
-<input id="op<%=count %>" type="radio" name="option<%=count %>" value="3" onclick="auditTrail()">
+<input id="Option" type="radio" name="option<%=count %>" value="3" onclick="save(this);">
  <%=ques.getOption3() %>
 						</td>
 						</tr>
@@ -842,7 +137,7 @@ C.&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;						
 D.&nbsp;&nbsp;&nbsp;					
-<input id="op<%=count %>" type="radio" name="option<%=count %>" value="4" onclick="auditTrail()">
+<input id="Option" type="radio" name="option<%=count %>" value="4" onclick="save(this);">
  <%=ques.getOption4() %>
 						</td>
 						</tr>
@@ -853,53 +148,73 @@ D.&nbsp;&nbsp;&nbsp;
 						
 						%>
 <input type="hidden" name="count" id="count" value="<%=count%>">
+ </div>
+ <!---------------------------panel-question-anwser end------------------------------->
+ <!------------------panel-footer start------------------------>
+ <div class="panelfooter "  style=" border: 1px #e4e4e4 solid; position:absolute; bottom: 5px; " >
+  <!-------------------------panel-question-buttons start--------------------------------->
+  <div class="panel-question-buttons">
+
+<input type="button" class="btn btn-success" value="Clear Response" onclick="clearR();save(this);" id="ClearResponseClick" >
+<input type="button" class="btn btn-success" value="Mark for Review & Next" onclick="markandreview();save(this);" id="MarkNReviewClick" >
+<input type="button" class="btn btn-success" value="Save & Next" onclick="saveQidOption('save');save(this);" id="SaveClick">
+  
+
+ </div>
+ <!---------------------------panel-question-buttons end------------------------------->
+ 
+ </div>
+ <!------------------panel-footer end------------------------>
+ </div>
+ <!------------------panel-body end------------------------> 
+  
+ 
 </div>
+<!------------------panel-default end------------------------>
+   
+      
+<!------------------|\  /| |''''  |\  |  |   |------------>      
+<!------------------| \/ | |''''  | \ |  |   |------------>      
+<!------------------|    | |____  |  \|  |___|------------->      
+<!-- ------------------------||||------------------------- -->  
+<!-- ---------------------\--||||--/----------------------- --> 
+<!-- ----------------------\-||||-/------------------------ --> 
+<!-- -----------------------\-||-/----------------------- -->     
+<!-- ------------------------\||/------------------------ -->       
+<!-- -------------------------\/------------------------ -->  
 
-<!--------------------------------------------main end------------------------------------>
 
 
-<!--------------------------------------------manu start------------------------------------>
+ <!------------------panel-default start------------------------>
+<div class="panel panel-default col-md-3 col-sm-3 " style="height: 99%; background-image: url('images/back-menu3.jpg');  background-position: top;" id="divmenu" >
+ <!------------------panel-body-menu start------------------------>
+ <div class="panel-body-menu" style="height:100%;">
+ 
+ <!---------------------------panel-timer start------------------------------->
+ <div class="panel-timer" style="height:20%; " >
 
-<div class="fixedmenu" id="Menu">
-<br>
-
-
-<div class="timeandinfo" id="personInfo" >
-
-<table border="1" style="border-spacing: 1px;" width="100%">
-
+  <div >Time Left:&nbsp; <span id="time" style="color: red;"></span></div>
+ </div> 
+ <!----------------------------panel-timer end------------------------------>
+ <!----------------------------panel-student-info start------------------------------>
+ <div class="panel-student-info" style="position:absolute;top:16%; height:20%;">
+<table >
 <tr>
-
-<td align="center"><% if(request.getAttribute("photoPath")!=null && !request.getAttribute("photoPath").equals("null") ){ out.print(request.getAttribute("photoPath"));} %>
-
+<td align="center" >
+<img   src="<% if(request.getAttribute("photoPath")!=null && !request.getAttribute("photoPath").equals("null") ){ out.print(request.getAttribute("photoPath").toString().trim());} %>" class="img-circle"  width="110" height="110">
 </td>
-<td> <table>
-	<tr>
-		<td><%=request.getAttribute("studId") %> </td>
-		
-	</tr>
-	<tr>
-		
-		<td><%=request.getAttribute("Name") %></td>
-		
-	</tr>
-	
-	
-</table> </td>
+<td >
+<table >
+<tr>
+<td><h4>&nbsp;&nbsp;<%=request.getAttribute("studId") %></h4></td>
 </tr>
-
-
-
-
+<tr>
+<td><h4 style="font-weight: bold;" class="text-success">&nbsp;&nbsp;<%=request.getAttribute("Name") %></h4></td>
+</tr>
 </table>
-
-
-
-
-
-
-
-
+</td>
+</tr>
+</table>
 <div><span> <input type="hidden"name="username"   id="username"  value="<%=request.getAttribute("username") %>" readonly="readonly" ></span></div>
 <div><span><input type="hidden" name="subject"    id="subject"   value="<%=request.getAttribute("subject") %>"  readonly="readonly" ></span></div>
 <div><span><input type="hidden" name="college"    id="college"   value="<%=request.getAttribute("college") %>"  readonly="readonly" ></span></div>
@@ -909,149 +224,258 @@ D.&nbsp;&nbsp;&nbsp;
 <div><span><input type="hidden" name="subId"      id="subId"     value="<%=request.getAttribute("subId") %>"    readonly="readonly" ></span></div>
 <div><span><input type="hidden" name="studId"     id="studId"    value="<%=request.getAttribute("studId") %>"   readonly="readonly" ></span></div>
 <div><span><input type="hidden" name="finalanwser"id="finalanwser" value=""></span></div>
-<div><span><input type="hidden" name="uId"     id="uId"    value="<%=request.getAttribute("uId") %>"   readonly="readonly" ></span></div>
-<br>
-
-
-
-<!-- 
-       <div id="starttime"></div>
- 
-       <div id="endtime"></div>
- 
-       <div id="showtime"></div> -->
-
-
-
+<div><span><input type="hidden" name="uId"     id="uId"    value="<%=request.getAttribute("uId") %>"   readonly="readonly" ></span></div>	       
+	       
+	       
+ </div>
+ <!----------------------------panel-student-info end------------------------------>
+ <!--------------------------panel-question-palette start-------------------------------->
+  <div class="panel-question-palette" style="position:absolute;bottom:20%; height: 40%;width: 90%;">
+<div class="questionbutton" id="questionMenu" onclick="save(this);" style="padding: 2%;width:100%; height:100%;overflow-y: scroll; ">
 </div>
-<h4 style="font-weight: bold; color: blue;">&nbsp;&nbsp;&nbsp;Question Palette:</h4>
+ </div>
+  <!-------------------------panel-question-palette end---------------------------------> 
+ <!---------------------------panel-menu-buttons start------------------------------->
+ <br>
+ <div class="panel-menu-buttons"  style="position: absolute;bottom:2%;">
+ <table align="center" style="border-collapse: separate;
+    border-spacing: 5px;" >
 
-<div class="questionbutton" id="questionMenu" style="padding: 5%;height:25%;overflow: scroll;">
+<tr >
 
+<td align="center">
 
-</div>
-<hr>
-<div class="instructionbutton" style="padding: 2%; height:25%; font-family: Arial, Helvetica, sans-serif;">
-
-<table >
-
-<tr>
-
-<td>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btngrn" style="width: 28px;height: 28px;"></button></td> 
-<td>&nbsp;Answered
+<button type="button" class="btn btn-success" style="width: 28px;height: 28px;"></button>
+</td> 
+<td align="left">Answered
 </td>
-<td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btnred" style="width: 28px;height: 28px;" ></button>
+<td></td>
+<td></td>
+<td align="center">
+<button type="button" class="btn btn-warning" style="width: 28px;height: 28px;" ></button>
 </td>
-<td>&nbsp;Not Answered
+<td align="left">Not Answered
 </td>
-
 </tr>
 
 <tr>
-<td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btnper" style="width: 28px;height: 28px;"></button>
+<td align="center">
+<button type="button" class="btn btn-info" style="width: 28px;height: 28px;"></button>
 </td>
-<td>&nbsp;Marked 
+<td align="left">Marked 
 </td>
-<td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="btnwhite" style="width: 28px;height: 28px;"></button>
+<td></td>
+<td></td>
+<td align="center">
+<button type="button" class="btn btn-default" style="width: 28px;height: 28px;"></button>
 </td>
-<td>&nbsp;Not Visited
+<td align="left">Not Visited
 </td>
 </tr>
 </table>
-<br>
-<br>
 <table>
 <tr>
-
+ 
 <!-- <input type="button" class="btn" value="Question Paper" onclick="questionpopup()"> -->
 <td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn" value="Profile" onclick="profilrpopup()" >
+&nbsp;<input type="button" class="btn btn-success " value="Profile" data-toggle="modal" data-target="#myModalProfile" onclick="save(this);" id="ProfileClick">
 </td>
 <td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="btn" value="Instructions" onclick="instructionpopup()" >
+&nbsp;<input type="button" class="btn btn-success" value="Instructions" data-toggle="modal" data-target="#myModalInstruction" onclick="save(this);" id="InstructionClick">
 </td>
 <td>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="btn" value="Submit" onclick="calRes();auditTrail();" id="submitbutton">
+&nbsp;<input type="submit" class="btn btn-success" value="Submit" onclick="calRes();save(this);" id="submitbutton">
 </td>
 
 </tr>
 </table>
+ </div> 
+ <!---------------------------panel-menu-buttons end------------------------------->
+
+ </div>
+ <!------------------panel-body-menu end------------------------> 
+  </div>
+<!------------------panel-default end------------------------>
+  
+
+
+
+
 
 </div>
-
-
-</div>
-
-<!--------------------------------------------manu end------------------------------------>
-
-
-
-<!--------------------------------------------footer start------------------------------------>
-
-
-<div class="fixedfooter"> 
-
-<br>
-<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="button" class="btn" value="Clear Response" onclick="clearR()" >
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="button" class="btn" value="Mark for Review & Next" onclick="markandreview();auditTrail()" >
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="button" class="btn" value="Save & Next" onclick="saveQidOption('save');auditTrail()">
-<br>
-<!-- <div class="box">
-	<a class="button" id="myHref" style="display: none;" href="#popuperror1"></a>
-</div> -->
-</div>
-<!--------------------------------------------footer end------------------------------------>
-
-
-
-
-
-
-
-
+<!------------------panel-full-page end------------------------>
 <div>
 <div id="blanket" style="display:none;"></div>
 <div id="popUpDiv" style="display:none;">
 
-  <a href="#" onclick="initTime();popup('popUpDiv');fullScreenApi.requestFullScreen(document.documentElement);" style="text-align: center; top:36%; color: white;margin-left: 20%; font-weight: bold; font-size: xx-large;" >Start Exam</a>
+ <a href="#" onclick="initTime();popup('popUpDiv');" style="text-align: center; top:36%; color: white;margin-left: 20%; font-weight: bold; font-size: xx-large;" >Start Exam</a> 
 </div>
 </div>
+ <div class="container">
 <div>
  <div id="submitblack" style="display:none;"></div>
 <div id="popsubmit" style="display:none;">
 <p style="color: white;"></p>
   <a href="#" onclick="timeupsubmit()" style="text-align: center; color: white;margin-left: 33%;top: 36%; font-size: xx-large;font-weight: bold; " >Submit</a>
 </div> 
-</div>	
+</div>
+</div>
+<!------------------save-alert-info--------------------------><!------------------save-alert-info-------------------------->
 
+ <div class="container">
+ 
+  <!-- Trigger the modal with a button -->
+  <input type="button" value="warning" id="savewarning" style="display: none;"    data-toggle="modal" data-target="#myModal">
 
-
-<!-- <div id="popuperror1" class="overlay">
-	<div class="popuperror">
-		
-		<a class="close" href="#">×</a>
-		<div class="content">
-			Please select the anwser.
-		</div>
-	</div>
-</div> -->
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog" style="top:50%; " >
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content"  >
+        <div class="modal-header" >
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Please select anwser</h4>
+        </div>
+        
+       
+      </div>
+      
+    </div>
+  </div>
+  
 </div>
 
-<!--------------------------------------------outer most div end------------------------------------>
+<!------------------save-alert-info--------------------------><!------------------save-alert-info------------------------->
+
+<!------------------profile-popup-info--------------------------><!------------------profile-popup-info-------------------------->
+
+ <div class="container">
  
- </form>
+  <!-- Trigger the modal with a button -->
+  <!-- <input type="button" value="warning" id="savewarning" style="display: none;"    data-toggle="modal" data-target="#myModal"> -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModalProfile" role="dialog" style="top:1%; " >
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content"  >
+        <div class="modal-header" >
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <h5 class="modal-title"><img   src=" <% if(request.getAttribute("photoPath")!=null && !request.getAttribute("photoPath").equals("null") ){ out.print(request.getAttribute("photoPath"));} %>" class="img-circle"  width="110" height="110"><b style="color: #009999; font-size: x-large;">&nbsp;&nbsp;<%=request.getAttribute("Name") %>&nbsp; Profile</b></h5>
+         
+        </div>
+        <div class="modal-body">
+         <table class="table">
+    
+    <tbody>
+      <tr class="success">
+       
+        <td>Student ID</td>
+        <td><%=request.getAttribute("studId") %></td>
+      </tr>
+      <tr class="danger">
+        
+        <td>Student Name</td>
+        <td><%=request.getAttribute("Name") %></td>
+      </tr>
+      <tr class="info">
+        
+        <td>Student Username</td>
+        <td><%=request.getAttribute("username") %></td>
+      </tr>
+      <tr class="success">
+       
+        <td>Subject</td>
+        <td><%=request.getAttribute("subject") %></td>
+      </tr>
+      <tr class="danger">
+        
+        <td>Collage Name</td>
+        <td><%=request.getAttribute("college") %></td>
+      </tr>
+      <tr class="info">
+        
+        <td>Your Total Time</td>
+        <td><%=request.getAttribute("time") %></td>
+      </tr>
+      <tr class="success">
+       
+        <td>Exam ID</td>
+        <td><%=request.getAttribute("examId") %></td>
+      </tr>
+      <tr class="danger">
+        
+        <td>Paper ID</td>
+        <td><%=request.getAttribute("paperId") %></td>
+      </tr>
+      <tr class="info">
+        
+        <td>Subject ID</td>
+        <td><%=request.getAttribute("subId") %></td>
+      </tr>
+    </tbody>
+  </table> 
+        </div>
+       
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+<!------------------profile-popup-info--------------------------><!------------------profile-popup-info------------------------->
+
+<!------------------instruction-popup-info--------------------------><!------------------instruction-popup-info-------------------------->
+
+ <div class="container">
+ 
+  <!-- Trigger the modal with a button -->
+  <!-- <input type="button" value="warning" id="savewarning" style="display: none;"    data-toggle="modal" data-target="#myModalInstruction"> -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModalInstruction" role="dialog" style="top:10%; " >
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content"  >
+        <div class="modal-header" >
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+          <h5 class="modal-title"><img src="images/icon-instructions.png" class="img-circle"  width="50" height="50"><b style="color: #009999; font-size: x-large;">&nbsp;&nbsp;&nbsp;&nbsp;Instruction</b></h5>
+          <div class="modal-body">
+           <p class="text-primary">You have to write this exam in one sitting and no breaks are allowed in between </p>
+  <p class="text-primary">If you have any doubt anywhere, please call the exam supervisor too seek possible assistance</p>
+  <p class="text-primary">During the exam, do not read aloud either the questions or the answers </p>
+  <p class="text-primary">You are not supposed to mishandle the computer equipment during the exam</p>
+  <p class="text-primary">You can press <b> SUBMIT </b>button once you are done with the exam </p>
+  <p class="text-primary">The exam would end automatically once the allowed duration is completed</p>
+  <p class="text-primary">Please attempt all questions in the Exam</p>
+  <p class="text-primary">You can review your answers during the exam and modify anytime </p>
+  <p class="text-primary">There are no negative marks in the exam </p>
+  <p class="text-primary">If any malpractice is noticed, the Exam supervisor has authority to stop your exam and may ask you to leave the exam center </p>
+  <p class="text-primary">During the exam, you are not supposed to indulge in any other activities like discussing, disturbing others etc. </p>
+        </div>
+        </div>
+        
+       
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+<!------------------instruction-popup-info--------------------------><!------------------instruction-popup-info------------------------->
+
+
+</form>
+<!------------------form end-------------------------->
+
+
 </body>
+<!------------------body end------------------------>
 </html>
+

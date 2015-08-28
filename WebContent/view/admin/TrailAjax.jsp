@@ -1,10 +1,12 @@
+<%@page import="manipal.onlineexam.admin.dao.TrailDao"%>
+<%@page import="manipal.onlineexam.admin.entity.Trail"%>
+
 <%@page import="com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="manipal.onlineexam.student.entity.StudentLogin"%>
 <%@page import="manipal.onlineexam.student.dao.StudentLoginDao"%>
-<%@page import="manipal.onlineexam.admin.entity.AuditTrail"%>
-<%@page import="manipal.onlineexam.admin.dao.AuditTrailDao"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,40 +18,47 @@
 <body>
 
 	<%
-		StudentLoginDao loginDao=new StudentLoginDao();
-		StudentLogin login=loginDao.getStudentLoginById(105);
-		AuditTrailDao auditTrailDao=new AuditTrailDao();
-		
-		String auditT="MarkForClick-->31-->0-->Thu Aug 27 2015 17:13:01 GMT+0530 (India Standard Time)-->23,MarkForClick-->31-->0-->Thu Aug 27 2015 17:13:01 GMT+0530 (India Standard Time)-->23,MarkForClick-->31-->0-->Thu Aug 27 2015 17:13:01 GMT+0530 (India Standard Time)-->23";
-		String[] sepAudit=auditT.split(",");
-		if(sepAudit!=null)
+	
+	
+		String trail="";
+		if(request.getParameter("trail")!=null)
 		{
-			for(String audit:sepAudit)
-			{
-				String[] events=audit.split("-->");
+			trail=request.getParameter("trail").trim();
+		}
+		
+		
+		
+		
+		 TrailDao trailDao=new TrailDao();
+		
+		
+		
+		
+			
+				String[] events=trail.split("-->");
 				
-				AuditTrail auditTrail=new AuditTrail();
+				 Trail trailO=new Trail();
 				//event
 				if(events[0]!=null)
 				{
-					auditTrail.setEvent(events[0]);
+					trailO.setMyEvent(events[0]);
 				}
 				//ques id
 				if(events[1]!=null)
 				{
-					auditTrail.setqIdCentral(events[1]);
+					trailO.setqIdCentral(events[1]);
 				}
 				//option
 				if(events[2]!=null)
 				{
-					auditTrail.setOption(events[2]);
+					trailO.setOptionNo(events[2]);
 				}
 				//time
 				if(events[3]!=null)
 				{
-					String temp="12-02-2015 17:13:01";
+					String temp=events[3];
 					 temp= temp.replaceAll(" GMT+0530 (India Standard Time)", "");
-					SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 					
 
 					try {
@@ -57,7 +66,7 @@
 						Date date = formatter.parse(temp);
 						System.out.println(date);
 						System.out.println(formatter.format(date));
-						auditTrail.setTime(date);
+						trailO.setMyDate(date);
 					} catch (ParseException e) {
 						e.printStackTrace();
 					}
@@ -68,12 +77,24 @@
 				//user ques id
 				if(events[4]!=null)
 				{
-					auditTrail.setqIdClient(events[4]);
+					trailO.setqIdClient(events[4]);
 				}
 				
-				auditTrailDao.addAuditTrail(auditTrail);
-			}
-		}
+				
+				if(events[5]!=null)
+				{
+					StudentLoginDao loginDao=new StudentLoginDao();
+					StudentLogin login=loginDao.getStudentLoginById(Integer.parseInt(events[5]));
+					
+					trailO.setStudentLogin(login);
+				}
+				
+				
+				
+				
+				 trailDao.addTrail(trailO);
+			
+		
 		
 		
 		

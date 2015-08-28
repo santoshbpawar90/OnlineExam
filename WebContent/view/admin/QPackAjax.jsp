@@ -230,6 +230,17 @@
 			studentLogin.setCollege(eElementStud.getElementsByTagName("College").item(0).getTextContent());
 			studentLogin.setPhotoPath(eElementStud.getElementsByTagName("Image").item(0).getTextContent());
 			
+			if(i%2==0)
+			{
+				studentLogin.setDivMain("Left");
+				studentLogin.setDivMenu("Right");
+			}
+			else
+			{
+				studentLogin.setDivMain("Right");
+				studentLogin.setDivMenu("Left");
+			}
+			
 			studentLogin.setLoginStatus("0");
 			studentLogin.setPack(qPack);		
 			studentLoginDao.addStudentLogin(studentLogin);

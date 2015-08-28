@@ -1,14 +1,138 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<!DOCTYPE html |>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
 <script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/jquery-1.11.3.js"></script>
+
+
+<style type="text/css">
+
+
+
+.city {
+    float: left;
+    margin: 5px;
+    padding: 15px;
+    width: 300px;
+    height: 300px;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+@font-face {
+    font-family: myFirstFont;
+    src: url(../../fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(../../fonts/Roboto-Regular.ttf);
+    font-weight: bold;
+}
+
+div {
+    font-family: myFirstFont;
+}
+
+body {
+background-image: url("../../images/background-image-login.jpg"); 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+.form-group {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    }
+div {
+  opacity: 0.95;
+}
+
+
+<!--------------------------------------------------------->
+
+
+
+.profile-header-img {
+    padding: 54px;
+}
+
+.profile-header-img > img.img-circle {
+   
+    border: 2px solid #51D2B7;
+}
+
+.profile-header {
+    margin-top: 43px;
+}
+
+/**
+ * Ranking component
+ */
+
+
+.label.label-default.rank-label {
+    background-color: rgb(81, 210, 183);
+    padding: 5px 10px 5px 10px;
+    border-radius: 27px;
+}
+
+<!--------------------------------------------------------->
+
+
+</style>
+
+
 <script type="text/javascript">
+
+
+
+
 function changeHashOnLoad() {
     window.location.href += "#";
     setTimeout("changeHashAgain()", "50"); 
@@ -32,48 +156,68 @@ window.setInterval(function () {
 </head>
 <body onload="changeHashOnLoad(); ">
 <form action="../../StudentLoginServlet" method="post">
-<div class="container-fluid">
-<br><br><br><br>
 
-<div class="row" style="margin-top: 6%;">
-		
-			<div class="col-md-4"></div>
-<div class="col-md-4">
-<div class="panel panel-primary">
-  
-  <div class="panel-heading"><b>LOGIN</b></div>
-  <div class="panel-body">
-    
-  
+<div class="container-fluid" style="padding:10%;" >
 
-<div class="form-group" >
-	<div class="row">
-		
-			<div class="col-md-4" align="right"><b>Username:</b></div>
-	  			<div class="col-md-7" style="margin-top: -1%">
-	  				<input type="text" class="form-control" name="userName" required="required" placeholder="Username"></div>
+<div class="row" ></div>
+<div class="row" >
+<div class="col-md-1"  ></div>		
+<div class="col-md-1" style="border-bottom-color: black;" ></div>
+<div class="col-md-6"></div>
+<div class="container">
+    <div class="row vertical-offset-100">
+    	<div class="col-md-4 col-md-offset-4  col-sm-6 col-sm-offset-4">
+    		<div class="panel panel-default">
+			  	<div class="panel-heading" style="background-image: url('../../images/background-image-header-instruction.jpg'); ">
+			  	
+			    	<h3 class="panel-title"><img src="../../images/icon-login.png" class="img-circle"  width="50" height="50">&nbsp;&nbsp;Candidate Sign in</h3>
+			 	</div>
+			  	<div class="panel-body">
+			    	<form accept-charset="UTF-8" role="form">
+                    <fieldset>
+			    	  	<div class="form-group">
+			    		    <input class="form-control" placeholder="Username" name="userName" type="text" required="required">
+			    		</div>
+			    		<div class="form-group">
+			    			<input class="form-control" placeholder="Password" name="password" type="password" value="" required="required">
+			    		</div>
+			    		
+			    		<!-- <input class="btn btn-lg btn-success btn-block" type="submit" value="Login"> -->
+			    		<button type="submit" class="btn btn-lg btn-success btn-block">
+ <b>  Login  </b> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+</button>
+			    	</fieldset>
+			      	</form>
+			    </div>
+			</div>
 		</div>
 	</div>
-	
-	<div class="form-group" style="margin-top: 6%">
-	<div class="row">		
-		  <div class="col-md-4" align="right" style="margin-top: 1%"><b>Password:</b></div>
-		  <div class="col-md-7"><input type="password" class="form-control" required="required" name="password" placeholder="Password"></div>
-		</div>
-	</div>
-	
-	<div class="form-group">
-	<div class="row">	
-	  <div class="col-md-4" align="right"></div>
-	  <div class="col-md-7"><input type="submit" value="LOGIN" style="font-weight: bolder;" class="btn btn-primary btn-md btn-block" name="password" ></div>
-	 </div>
-	</div>
 </div>
-</div>
-</div>
+<div class="col-md-1"  ></div>
 <div class="col-md-4"></div>
 </div>
+
+<div class="city">
+
+    		
+                <img class="img-circle" src="../../images/icon-nomobile.png"  width="80" height="80">
+                <div class="rank-label-container" >
+                 <span class="label label-default rank-label"><font color="black">Mobile not allowed </font></span>
+                
+        		</div>
+      <div style="margin-left: 50%;margin-top: -32%;">
+                <img class="img-circle" src="../../images/icon-book.png"  width="80" height="80">
+             
+                <div class="rank-label-container" >
+                    <span class="label label-default rank-label"><font color="black">Books not allowed</font></span>
+            </div>   
+        </div>
+
+
 </div>
-</form>
+
+
+		
+	</form>
 </body>
 </html>

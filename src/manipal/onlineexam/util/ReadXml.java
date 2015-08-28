@@ -3,6 +3,7 @@ package manipal.onlineexam.util;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import manipal.onlineexam.admin.dao.TrailDao;
+import manipal.onlineexam.admin.entity.Trail;
 import manipal.onlineexam.student.dao.StudentLoginDao;
 import manipal.onlineexam.student.entity.StudentLogin;
 
@@ -59,11 +62,20 @@ public class ReadXml extends HttpServlet {
 			{
 				uId=Integer.parseInt(request.getParameter("id"));
 			}
-					
-					
-			
 			StudentLoginDao loginDao=new StudentLoginDao();			
 			StudentLogin studentLogin= loginDao.getStudentLoginById(uId);
+			
+			Trail trail=new Trail();
+			trail.setMyEvent("Start exam ");
+			trail.setMyDate(new Date());
+			trail.setStudentLogin(studentLogin);
+			
+			TrailDao dao=new TrailDao();
+			dao.addTrail(trail);
+			
+					
+			
+			
 			request.setAttribute("username",studentLogin.getUserName());
 			request.setAttribute("time", studentLogin.getPack().getDuration());
 			request.setAttribute("subject", studentLogin.getPack().getqPackName());
@@ -76,6 +88,8 @@ public class ReadXml extends HttpServlet {
 			request.setAttribute("Name", studentLogin.getStudName());
 			request.setAttribute("uId", uId);
 			
+			request.setAttribute("DivMain", studentLogin.getDivMain());
+			request.setAttribute("DivMenu", studentLogin.getDivMenu());
 			
 			File fXmlFile = new File(studentLogin.getPack().getPath());
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory

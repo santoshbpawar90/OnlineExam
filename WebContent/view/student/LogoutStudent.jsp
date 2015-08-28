@@ -5,7 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
+<script src="../../js/bootstrap.min.js"></script>
 <script type="text/javascript">
 function changeHashOnLoad() {
     window.location.href += "#";
@@ -25,61 +27,51 @@ window.setInterval(function () {
 
 
 </script>
-<style>
+<style type="text/css">
+@font-face {
+    font-family: myFirstFont;
+    src: url(../../fonts/Roboto-Regular.ttf);
+}
 
-.btn {
- background: #0074c2;
-  background-image: -webkit-linear-gradient(top, #0074c2, #000000);
-  background-image: -moz-linear-gradient(top, #0074c2, #000000);
-  background-image: -ms-linear-gradient(top, #0074c2, #000000);
-  background-image: -o-linear-gradient(top, #0074c2, #000000);
-  background-image: linear-gradient(to bottom, #0074c2, #000000);
-  -webkit-border-radius: 13;
-  -moz-border-radius: 13;
-  border-radius: 13px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-  font-weight:bolder;
-  
-  }
+@font-face {
+    font-family: myFirstFont;
+    src: url(../../fonts/Roboto-Regular.ttf);
+    font-weight: bold;
+}
+
+div {
+    font-family: myFirstFont;
+}
+
+body {
+ background-image: url("../../images/background-end-exam.jpg"); 
+-webkit-background-size: cover;
+background-repeat: no-repeat;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: auto;
+}
+div {
+  opacity: 0.93;
+}
 </style>
-
-
-
-
 </head>
 <body>
 <% 
 session.invalidate();
 %>
-<form name="submitpage" onmousemove ="changeHashOnLoad();" ></form>
-
-<div  style=" border: 3px solid #606060; position: fixed;height:20% ;width:18%; top:30%;left: 35%; text-align: center; padding: 4%;" >
-
-
-
-
-<table  border="0">
-<tr>
-<td>
-  <h3 style="color: green;">Your result is submitted successfully </h3>
-   </td>
-</tr>
-
-
-<tr>
-
-<td>
-
-<a href="LoginStudent.jsp"><input type="button" class="btn" value="End Exam" ></a>
-</td>
-
-
-</tr>
-</table>
+<form name="submitpage" onmousemove ="changeHashOnLoad();" >
+<br><br><br><br><br><br><br><br>
+<div class="container">
+  
+  <div class="panel panel-default col-md-4 col-md-offset-4" style="padding: 0%;">
+    <div class="panel-heading" align="center" style="background-image: url('../../images/background-image-header-instruction.jpg'); background-size: cover;  ">
+    <img src="../../images/icon-ok.png" class="img-circle"  width="50" height="50">
+  <h4 style="color: #009999;">  Your result is submitted successfully </h4></div>
+    <div class="panel-body" align="center"><a href="LoginStudent.jsp"><input  type="button" class="btn btn-success" value="End Exam" ></a></div>
+  </div>
 </div>
+
+</form>
 </body>
 </html>

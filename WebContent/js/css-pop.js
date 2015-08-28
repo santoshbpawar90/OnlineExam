@@ -4,6 +4,7 @@ function toggle(div_id) {
 	else {el.style.display = 'none';}
 }
 function blanket_size(popUpDivVar) {
+	
 	if (typeof window.innerWidth != 'undefined') {
 		viewportheight = window.innerHeight;
 	} else {
