@@ -57,5 +57,26 @@ public class TrailDao {
 	}
 
 
+	
+	public boolean delAllTrail() {
+		Session session=HibernateUtil.openSession();
+		Transaction transaction=null;
+		try {
+			transaction=session.beginTransaction();
+			session.createQuery("delete from Trail").executeUpdate();
+			transaction.commit();
+		} catch (HibernateException e) {
+			if(transaction!=null)
+				transaction.rollback();
+			e.printStackTrace();
+			return false;
+		}
+		finally
+		{
+			if(session!=null)
+				session.close();
+		}
+		return true;
+	}
 
 }

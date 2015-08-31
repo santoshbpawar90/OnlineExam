@@ -78,9 +78,10 @@ public class ReadXml extends HttpServlet {
 			
 			request.setAttribute("username",studentLogin.getUserName());
 			request.setAttribute("time", studentLogin.getPack().getDuration());
-			request.setAttribute("subject", studentLogin.getPack().getqPackName());
+			request.setAttribute("subject", studentLogin.getPack().getSubName());
 			request.setAttribute("college", studentLogin.getCollege());
 			request.setAttribute("examId", studentLogin.getPack().getExamId());
+			request.setAttribute("examName", studentLogin.getPack().getqPackName());
 			request.setAttribute("paperId", studentLogin.getPack().getPaperId());
 			request.setAttribute("subId", studentLogin.getPack().getSubId());
 			request.setAttribute("studId", studentLogin.getStudId());

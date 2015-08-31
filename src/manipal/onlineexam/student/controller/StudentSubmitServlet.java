@@ -17,6 +17,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import manipal.onlineexam.admin.dao.TrailDao;
+import manipal.onlineexam.admin.entity.Trail;
 import manipal.onlineexam.student.dao.StudentLoginDao;
 import manipal.onlineexam.student.entity.StudentLogin;
 
@@ -84,7 +86,15 @@ public class StudentSubmitServlet extends HttpServlet {
 		StudentLoginDao loginDao=new StudentLoginDao();
 		StudentLogin login=loginDao.getStudentLoginById(uId);
 		
+		//=====================================================
 		
+		Trail trail=new Trail();
+		trail.setMyEvent("Submit");
+		trail.setMyDate(new Date());
+		trail.setStudentLogin(login);
+		
+		TrailDao dao=new TrailDao();
+		dao.addTrail(trail);
 		
 //----------------------------------xml writing start----------------------------->
 		
@@ -260,7 +270,7 @@ public class StudentSubmitServlet extends HttpServlet {
 				requestDispatcher.forward(request, response);
 				*/
 				
-				response.sendRedirect("view/student/LogoutStudent.jsp?usern="+username);
+				response.sendRedirect("view/student/LogoutStudent.jsp?usern="+username+"&uId="+uId);
 		
 		} catch (Exception e) {
 			// TODO: handle exception

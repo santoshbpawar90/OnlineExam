@@ -15,7 +15,7 @@
 	      
 	      
 	       
-	       alert(prevId);
+	      // alert(prevId);
 	     	var tempVal=0;
 	     	 if(op!=null)
 	     		{
@@ -129,7 +129,7 @@ for(var i=1;i<=totalquestion;i++){
 	//alert("Are you sure you want to submit exam ?")
 	console.log("array"+arrQuOp);
 	document.getElementById("finalanwser").value=arrQuOp;
-	alert(arrQuOp);
+	//alert(arrQuOp);
 	/* document.examForm.action="../../StudentSubmitServlet";
 	document.examForm.submit();  */
 }

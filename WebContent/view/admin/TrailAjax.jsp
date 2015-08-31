@@ -27,7 +27,7 @@
 		}
 		
 		
-		
+		System.out.print(trail);
 		
 		 TrailDao trailDao=new TrailDao();
 		
@@ -41,7 +41,14 @@
 				//event
 				if(events[0]!=null)
 				{
-					trailO.setMyEvent(events[0]);
+					String myevnt=events[0];
+					myevnt=myevnt.replaceAll("MarkNReviewClick", "Mark For Review");
+					myevnt=myevnt.replaceAll("SaveClick", "Save");
+					myevnt=myevnt.replaceAll("ClearResponseClick", "Clear Response");
+					
+					
+					
+					trailO.setMyEvent(myevnt);
 				}
 				//ques id
 				if(events[1]!=null)
@@ -74,22 +81,22 @@
 					
 					
 				}
-				//user ques id
+				
+				
+				
 				if(events[4]!=null)
 				{
-					trailO.setqIdClient(events[4]);
-				}
-				
-				
-				if(events[5]!=null)
-				{
 					StudentLoginDao loginDao=new StudentLoginDao();
-					StudentLogin login=loginDao.getStudentLoginById(Integer.parseInt(events[5]));
+					StudentLogin login=loginDao.getStudentLoginById(Integer.parseInt(events[4]));
 					
 					trailO.setStudentLogin(login);
 				}
 				
-				
+				//user ques id
+				if(events[5]!=null)
+				{
+					trailO.setqIdClient(events[5]);
+				}
 				
 				
 				 trailDao.addTrail(trailO);

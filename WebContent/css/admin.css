@@ -1,0 +1,10 @@
+@CHARSET "ISO-8859-1";
+
+.bg #bg {
+background-image: url("../../images/background-admin-login.jpg"); 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+background-position: center;
+}

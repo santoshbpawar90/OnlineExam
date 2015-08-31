@@ -26,7 +26,7 @@ div {
 
 
 body {
-background-image: url("../../images/background-image-instruction.jpg"); 
+ background-image: url("../../images/background-image-instruction.jpg"); 
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
@@ -90,23 +90,23 @@ String id=request.getParameter("user");
   <h5 class="panel-title"><img src="../../images/icon-instructions.png" class="img-circle"  width="50" height="50"><b style="color: #009999; font-size: x-large;">&nbsp;&nbsp;&nbsp;&nbsp;Please read the following instructions carefully</b></h5>
   </div>
   <div class="panel-body" >
-  
-  <p class="text-primary">You have to write this exam in one sitting and no breaks are allowed in between </p>
-  <p class="text-primary">If you have any doubt anywhere, please call the exam supervisor too seek possible assistance</p>
-  <p class="text-primary">During the exam, do not read aloud either the questions or the answers </p>
-  <p class="text-primary">You are not supposed to mishandle the computer equipment during the exam</p>
-  <p class="text-primary">You can press <b> SUBMIT </b>button once you are done with the exam </p>
-  <p class="text-primary">The exam would end automatically once the allowed duration is completed</p>
-  <p class="text-primary">Please attempt all questions in the Exam</p>
-  <p class="text-primary">You can review your answers during the exam and modify anytime </p>
-  <p class="text-primary">There are no negative marks in the exam </p>
-  <p class="text-primary">If any malpractice is noticed, the Exam supervisor has authority to stop your exam and may ask you to leave the exam center </p>
-  <p class="text-primary">During the exam, you are not supposed to indulge in any other activities like discussing, disturbing others etc. </p>
-  
+ 
+  <p class="text-primary"> <font color="blue">You have to write this exam in one sitting and no breaks are allowed in between.</font></p>
+  <p class="text-primary"> <font color="blue">If you have any doubt anywhere, please call the exam supervisor too seek possible assistance.</font></p>
+  <p class="text-primary"> <font color="blue">During the exam, do not read aloud either the questions or the answers .</font></p>
+  <p class="text-primary"> <font color="blue">You are not supposed to mishandle the computer equipment during the exam.</font></p>
+  <p class="text-primary"> <font color="blue">You can press <b> SUBMIT </b>button once you are done with the exam .</font></p>
+  <p class="text-primary"> <font color="blue">The exam would end automatically once the allowed duration is completed.</font></p>
+  <p class="text-primary"> <font color="blue">Please attempt all questions in the Exam.</font></p>
+  <p class="text-primary"> <font color="blue">You can review your answers during the exam and modify anytime. </font></p>
+  <p class="text-primary"> <font color="blue">There are no negative marks in the exam .</font></p>
+  <p class="text-primary"> <font color="blue">If any malpractice is noticed, the Exam supervisor has authority to stop your exam and may ask you to leave the exam center. </font></p>
+  <p class="text-primary"> <font color="blue">During the exam, you are not supposed to indulge in any other activities like discussing, disturbing others etc. </font></p>
+  </font>
   </div>
   
   <div class="radio" align="center">
-  <img src="../../images/icon-yes.png" class="img-circle"  width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>	<input type="radio" required="required" name="optradio">&nbsp;&nbsp; I have read the above instructions completely and agree to them</label>
+  <img src="../../images/icon-yes.png" class="img-circle"  width="50" height="50">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>	<input type="radio" required="required" name="optradio">&nbsp;&nbsp;<b> I have read the above instructions completely and agree to them</b></label>
   </div>
   <div align="center"> 
   <input type="submit" value="Start  Exam" class="btn btn-lg btn-success" style="font-weight:bolder;font-size: large;"  >

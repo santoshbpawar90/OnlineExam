@@ -27,17 +27,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 </style>
 
 
@@ -170,7 +159,7 @@ window.setInterval(function () {
     		<div class="panel panel-default">
 			  	<div class="panel-heading" style="background-image: url('../../images/background-image-header-instruction.jpg'); ">
 			  	
-			    	<h3 class="panel-title"><img src="../../images/icon-login.png" class="img-circle"  width="50" height="50">&nbsp;&nbsp;Candidate Sign in</h3>
+			    	<h3 class="panel-title" style="margin-left: 10%;"><img src="../../images/icon-login.png" class="img-circle"  width="50" height="50" align="center">&nbsp;&nbsp;<font size="20px;" >Sign in </font></h3>
 			 	</div>
 			  	<div class="panel-body">
 			    	<form accept-charset="UTF-8" role="form">
@@ -197,24 +186,6 @@ window.setInterval(function () {
 <div class="col-md-4"></div>
 </div>
 
-<div class="city">
-
-    		
-                <img class="img-circle" src="../../images/icon-nomobile.png"  width="80" height="80">
-                <div class="rank-label-container" >
-                 <span class="label label-default rank-label"><font color="black">Mobile not allowed </font></span>
-                
-        		</div>
-      <div style="margin-left: 50%;margin-top: -32%;">
-                <img class="img-circle" src="../../images/icon-book.png"  width="80" height="80">
-             
-                <div class="rank-label-container" >
-                    <span class="label label-default rank-label"><font color="black">Books not allowed</font></span>
-            </div>   
-        </div>
-
-
-</div>
 
 
 		

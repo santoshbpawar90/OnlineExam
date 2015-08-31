@@ -39,7 +39,7 @@ if(packs!=null)
 	<div class="panel panel-primary">
   <!-- Default panel contents -->
   <div class="panel-heading"><b style="font-size: medium;">System Monitor</b></div>
-  <div class="panel-body">
+  <div class="panel-body"  >
    
    <div class="form-group">
 	<div class="row">`
@@ -102,7 +102,7 @@ if(packs!=null)
 				<td align="center" style="font-size: medium;"><b style="color: purple;"><%= count %></b></td>
 			</tr>
 			
-			<tr class="">
+			<tr class="active">
 				<td style="font-size: medium;"><b>No of Students Present</b></td>
 				<td align="center" style="font-size: medium;"><b style="color: purple;"> <%= present %></b> </td>
 			</tr>
@@ -112,7 +112,7 @@ if(packs!=null)
 				<td align="center" style="font-size: medium;"><b style="color: purple;"><%=count-present %></b></td>
 			</tr>
 			
-			<tr class="">
+			<tr class="active">
 				<td style="font-size: medium;"><b>No of Students Active</b></td>
 				<td align="center" style="font-size: medium;"><b style="color: purple;"><%=loginCount %></b></td>
 			</tr>

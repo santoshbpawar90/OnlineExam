@@ -14,8 +14,21 @@
 <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../js/jquery.min.js"></script>
+<link rel="stylesheet" href="../../css/admin.css">
 
 <%@include file="QPackMain.jsp" %>
+<style type="text/css">
+
+.bg #bg {
+background-image: url("../../images/background-admin-login.jpg"); 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+background-position: center;
+}
+
+</style>
 <script>
 
 
@@ -73,7 +86,7 @@ function myFunction() {
 	<div class="panel panel-primary">
   <!-- Default panel contents -->
   <div class="panel-heading"><b>QPack Management</b></div>
-  <div class="panel-body">
+  <div class="panel-body " id="bg" >
    
  
 
@@ -113,7 +126,7 @@ function myFunction() {
 <div class="panel panel-primary">
   <!-- Default panel contents -->
   <div class="panel-heading"><b>Available QPack</b></div>
-  <div class="panel-body">
+  <div class="panel-body" >
   <br>
 <form action="../../ActivatePack" method="post">
 <div class="form-group">
@@ -132,7 +145,7 @@ function myFunction() {
 	  
 	  	
 	  	<table class="table table-bordered table-hover">
-			<tr class="info">
+			<tr class="success">
 				<td align="center" ><b>Select</b></td>
 				<td align="center"><b>Exam</b></td>
 				<td align="center"><b>Subject</b></td>
@@ -150,7 +163,7 @@ function myFunction() {
 			for(QPack qPack:qPacks)
 			{
 				%>
-				<tr>
+				<tr class="active"> 
 				<td align="center"><input type="radio" name="rdo"
 				<%if(qPack.getActivationStatus()!=null && qPack.getActivationStatus().equals("1")){%>disabled="disabled" <%}%> value="<%=qPack.getId()%>" required="required"> </td>
 				<td align="center"><%=qPack.getqPackName() %></td>

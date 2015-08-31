@@ -3,7 +3,7 @@
     <%@page import="java.util.ArrayList"%>
     <%@page import="manipal.onlineexam.util.QuestionClass"%>
 <!DOCTYPE html |>
-<html  style="height: 98%; ">
+<html  style="height: 97%; ">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <script type="text/javascript" src="js/exambuttonsevent.js">  </script>
@@ -16,7 +16,12 @@
 <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 <style type="text/css">
 
-
+.btn-default {
+    text-shadow: 0px 1px 0px #FFF;
+    background-image: linear-gradient(to bottom, #FFF 0px, #E0E0E0 100%);
+    background-repeat: repeat-x;
+    border-color: #080606;
+}
 
 
 @font-face {
@@ -39,17 +44,17 @@ div {
 
 <script>
 $(document).ready(function(){
-		$("#divmain").css({"position":"fixed", "right":"2px"});
-		$("#divmenu").css({"position":"fixed", "left":"2px"});
+		$("#divmain").css({<%=request.getAttribute("DivMain")%>});
+		$("#divmenu").css({<%=request.getAttribute("DivMenu")%>});
 });
 </script>
 
 
 </head>
 <!------------------body start------------------------>
-<body style="height: 100%;" onload="start();popup('popUpDiv')">
+<body style="overflow:scroll; height: 100%;" onload="start();popup('popUpDiv')">
 <!------------------form start------------------------>
-<form  style="height: 100%" method="post" action="StudentSubmitServlet" onsubmit="return chkSubmit()">
+<form  style="height: 100%" method="post" action="StudentSubmitServlet" >
 <!------------------panel-full-page start------------------------>
 <div class="container-fluid" style="height: 100%;" >
 
@@ -58,10 +63,10 @@ $(document).ready(function(){
 
 
 <!------------------panel-default start------------------------>
-<div class="panel panel-default col-md-9 col-sm-9 " style="padding: 0%;height: 99%; " id="divmain">
+<div class="panel panel-default col-md-9 col-sm-9 col-xs-8 " style="padding: 0%;height: 99%; " id="divmain">
 <!------------------panel-heading start------------------------>
 <div class="panel-heading" style=" padding-left: 1%; background-image: url('images/head-exam.jpg'); background-size: cover;  ">
-<div class="panel-title"><img src="images/icons-online-exam.jpg" class="img-circle"  width="80" height="75"><b style="color: #009999; font-size: xx-large;">&nbsp;&nbsp;Exam Portal</b></div>
+<div class="panel-title"><img src="images/icons-online-exam.jpg" class="img-circle"  width="80" height="75"><b style="color: #009999; font-size: xx-large;">&nbsp;&nbsp;<%=request.getAttribute("examName")%></b></div>
 
 </div>
  <!------------------panel-body start------------------------>
@@ -186,19 +191,30 @@ D.&nbsp;&nbsp;&nbsp;
 
 
  <!------------------panel-default start------------------------>
-<div class="panel panel-default col-md-3 col-sm-3 " style="height: 99%; background-image: url('images/back-menu3.jpg');  background-position: top;" id="divmenu" >
+<div class="panel panel-default col-md-3 col-sm-3 col-xs-4" style="height: 99%; background-image: url('images/back-menu3.jpg');  background-position: top;" id="divmenu" >
  <!------------------panel-body-menu start------------------------>
+ <div class="row" style="height:100%;">
  <div class="panel-body-menu" style="height:100%;">
  
  <!---------------------------panel-timer start------------------------------->
- <div class="panel-timer" style="height:20%; " >
-
-  <div >Time Left:&nbsp; <span id="time" style="color: red;"></span></div>
+ <div class="panel-timer" style="position:relative; height:10%;  " align="center">
+<br>
+  Time Left:&nbsp; <span id="time" style="color: red;"></span>
  </div> 
  <!----------------------------panel-timer end------------------------------>
  <!----------------------------panel-student-info start------------------------------>
- <div class="panel-student-info" style="position:absolute;top:16%; height:20%;">
-<table >
+ <div class="panel-student-info" style="position:relative;  height:18%; border: solid 1px;">
+ 
+ <div class="col-md-5" align="center" style="position: relative;">
+ <img   src="<% if(request.getAttribute("photoPath")!=null && !request.getAttribute("photoPath").equals("null") ){ out.print(request.getAttribute("photoPath").toString().trim());} %>" class="img-circle"  width="110" height="110">
+ 
+ </div>
+  <div class="col-md-7" align="left">
+ <h4 style="font-weight: bold;" class="text-success"><%=request.getAttribute("studId") %></h4>
+ <h4 style="font-weight: bold;" class="text-success"><%=request.getAttribute("Name") %></h4>
+ </div>
+ 
+<%-- <table >
 <tr>
 <td align="center" >
 <img   src="<% if(request.getAttribute("photoPath")!=null && !request.getAttribute("photoPath").equals("null") ){ out.print(request.getAttribute("photoPath").toString().trim());} %>" class="img-circle"  width="110" height="110">
@@ -214,7 +230,7 @@ D.&nbsp;&nbsp;&nbsp;
 </table>
 </td>
 </tr>
-</table>
+</table> --%>
 <div><span> <input type="hidden"name="username"   id="username"  value="<%=request.getAttribute("username") %>" readonly="readonly" ></span></div>
 <div><span><input type="hidden" name="subject"    id="subject"   value="<%=request.getAttribute("subject") %>"  readonly="readonly" ></span></div>
 <div><span><input type="hidden" name="college"    id="college"   value="<%=request.getAttribute("college") %>"  readonly="readonly" ></span></div>
@@ -230,15 +246,62 @@ D.&nbsp;&nbsp;&nbsp;
  </div>
  <!----------------------------panel-student-info end------------------------------>
  <!--------------------------panel-question-palette start-------------------------------->
-  <div class="panel-question-palette" style="position:absolute;bottom:20%; height: 40%;width: 90%;">
+  <div class="panel-question-palette" style="position:relative;  height: 40%; border: solid 1px;border-color:gray;  align="left">
+  
+  <b><font color="gray" style="padding-left: 4px;">Question Palette :</font></b>
+  
 <div class="questionbutton" id="questionMenu" onclick="save(this);" style="padding: 2%;width:100%; height:100%;overflow-y: scroll; ">
 </div>
  </div>
+ 
   <!-------------------------panel-question-palette end---------------------------------> 
  <!---------------------------panel-menu-buttons start------------------------------->
  <br>
- <div class="panel-menu-buttons"  style="position: absolute;bottom:2%;">
- <table align="center" style="border-collapse: separate;
+ 
+ 
+ 
+ 
+ 
+ <div class="panel-menu-buttons"  style="position: relative; bottom:0.5%; border: dashed 1px;border-color:gray; ">
+ <div class="row" style="padding:2%; ">
+ <div class="col-md-5 " align="left">
+ <span><button type="button" class="btn btn-success" style="width: 28px;height: 28px;"></button> Answered</span>
+ </div>
+
+  <div class="col-md-7 " align="left">
+  <span><button type="button" class="btn btn-warning" style="width: 28px;height: 28px;" ></button>Not Answered</span>
+ </div>
+ 
+ </div>
+<div class="row" style="padding:2%; ">
+ <div class="col-md-5" align="left">
+ <span><button type="button" class="btn btn-info" style="width: 28px;height: 28px;"></button>Marked</span>
+ </div>
+ 
+  <div class="col-md-7" align="left">
+  <span><button type="button" class="btn btn-default" style="width: 28px;height: 28px;"></button>Not Visited</span>
+ </div>
+ 
+ </div>
+ 
+ <br>
+ <div class="row" align="center" style="padding: 2%;">
+<input type="button" class="btn btn-success " value="Profile" data-toggle="modal" data-target="#myModalProfile" onclick="save(this);" id="ProfileClick">
+
+<input type="button" class="btn btn-success" value="Instructions" data-toggle="modal" data-target="#myModalInstruction" onclick="save(this);" id="InstructionClick">
+
+<input type="button" class="btn btn-success" value="Submit" data-toggle="modal" data-target="#submitwarning"   id="submitbutton">
+
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <!-- <table align="center" style="border-collapse: separate;
     border-spacing: 5px;" >
 
 <tr >
@@ -272,11 +335,11 @@ D.&nbsp;&nbsp;&nbsp;
 <td align="left">Not Visited
 </td>
 </tr>
-</table>
-<table>
+</table> -->
+<!-- <table>
 <tr>
  
-<!-- <input type="button" class="btn" value="Question Paper" onclick="questionpopup()"> -->
+<input type="button" class="btn" value="Question Paper" onclick="questionpopup()">
 <td>
 &nbsp;<input type="button" class="btn btn-success " value="Profile" data-toggle="modal" data-target="#myModalProfile" onclick="save(this);" id="ProfileClick">
 </td>
@@ -284,16 +347,17 @@ D.&nbsp;&nbsp;&nbsp;
 &nbsp;<input type="button" class="btn btn-success" value="Instructions" data-toggle="modal" data-target="#myModalInstruction" onclick="save(this);" id="InstructionClick">
 </td>
 <td>
-&nbsp;<input type="submit" class="btn btn-success" value="Submit" onclick="calRes();save(this);" id="submitbutton">
+&nbsp;<input type="button" class="btn btn-success" value="Submit" data-toggle="modal" data-target="#submitwarning"   id="submitbutton">
 </td>
 
 </tr>
-</table>
+</table> -->
  </div> 
  <!---------------------------panel-menu-buttons end------------------------------->
 
  </div>
  <!------------------panel-body-menu end------------------------> 
+ </div>
   </div>
 <!------------------panel-default end------------------------>
   
@@ -320,22 +384,24 @@ D.&nbsp;&nbsp;&nbsp;
 </div> 
 </div>
 </div>
-<!------------------save-alert-info--------------------------><!------------------save-alert-info-------------------------->
+<!------------------submit-alert-info--------------------------><!------------------submit-alert-info-------------------------->
 
  <div class="container">
  
-  <!-- Trigger the modal with a button -->
-  <input type="button" value="warning" id="savewarning" style="display: none;"    data-toggle="modal" data-target="#myModal">
+  
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog" style="top:50%; " >
+  <div class="modal fade" id="submitwarning" role="dialog" style="top:30%; " >
     <div class="modal-dialog">
     
       <!-- Modal content-->
       <div class="modal-content"  >
-        <div class="modal-header" >
+        <div class="modal-header" align="center" >
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Please select anwser</h4>
+          <h4 class="modal-title">Are You Sure You Want To Submit.</h4>
+        </div>
+        <div class="modal-body" align="center">
+        <input type="submit" name="submit" value="Yes" id="finalsubmit" class="btn btn-success">
         </div>
         
        
@@ -346,7 +412,36 @@ D.&nbsp;&nbsp;&nbsp;
   
 </div>
 
+<!------------------submit-alert-info-end-------------------------><!------------------submit-alert-info-end------------------------>
+<!------------------save-alert-info--------------------------><!------------------save-alert-info-------------------------->
+
+ <div class="container">
+ 
+  <!-- Trigger the modal with a button -->
+  <input type="button" value="warning" id="savewarning" style="display: none;"    data-toggle="modal" data-target="#myModal">
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog" style="top:30%; " >
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content"  >
+        <div class="modal-header" >
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Please select anwser</h4>
+        </div>
+        <div class="modal-body">
+        </div>
+       
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
 <!------------------save-alert-info--------------------------><!------------------save-alert-info------------------------->
+
 
 <!------------------profile-popup-info--------------------------><!------------------profile-popup-info-------------------------->
 
@@ -361,7 +456,7 @@ D.&nbsp;&nbsp;&nbsp;
     
       <!-- Modal content-->
       <div class="modal-content"  >
-        <div class="modal-header" >
+        <div class="modal-header" style="background-image: url('images/background-image-header-instruction.jpg'); background-size: cover;  background-position: left;" >
           <button type="button" class="close" data-dismiss="modal">&times;</button>
          <h5 class="modal-title"><img   src=" <% if(request.getAttribute("photoPath")!=null && !request.getAttribute("photoPath").equals("null") ){ out.print(request.getAttribute("photoPath"));} %>" class="img-circle"  width="110" height="110"><b style="color: #009999; font-size: x-large;">&nbsp;&nbsp;<%=request.getAttribute("Name") %>&nbsp; Profile</b></h5>
          
@@ -375,12 +470,12 @@ D.&nbsp;&nbsp;&nbsp;
         <td>Student ID</td>
         <td><%=request.getAttribute("studId") %></td>
       </tr>
-      <tr class="danger">
+      <tr class="success">
         
         <td>Student Name</td>
         <td><%=request.getAttribute("Name") %></td>
       </tr>
-      <tr class="info">
+      <tr class="success">
         
         <td>Student Username</td>
         <td><%=request.getAttribute("username") %></td>
@@ -390,14 +485,14 @@ D.&nbsp;&nbsp;&nbsp;
         <td>Subject</td>
         <td><%=request.getAttribute("subject") %></td>
       </tr>
-      <tr class="danger">
+      <tr class="success">
         
         <td>Collage Name</td>
         <td><%=request.getAttribute("college") %></td>
       </tr>
-      <tr class="info">
+      <tr class="success">
         
-        <td>Your Total Time</td>
+        <td>Exam Duration (Minutes)</td>
         <td><%=request.getAttribute("time") %></td>
       </tr>
       <tr class="success">
@@ -405,12 +500,12 @@ D.&nbsp;&nbsp;&nbsp;
         <td>Exam ID</td>
         <td><%=request.getAttribute("examId") %></td>
       </tr>
-      <tr class="danger">
+      <tr class="success">
         
         <td>Paper ID</td>
         <td><%=request.getAttribute("paperId") %></td>
       </tr>
-      <tr class="info">
+      <tr class="success">
         
         <td>Subject ID</td>
         <td><%=request.getAttribute("subId") %></td>
@@ -441,24 +536,25 @@ D.&nbsp;&nbsp;&nbsp;
     
       <!-- Modal content-->
       <div class="modal-content"  >
-        <div class="modal-header" >
+        <div class="modal-header" style="background-image: url('images/background-image-header-instruction.jpg'); background-size: cover;  background-position: center;" >
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           
-          <h5 class="modal-title"><img src="images/icon-instructions.png" class="img-circle"  width="50" height="50"><b style="color: #009999; font-size: x-large;">&nbsp;&nbsp;&nbsp;&nbsp;Instruction</b></h5>
-          <div class="modal-body">
-           <p class="text-primary">You have to write this exam in one sitting and no breaks are allowed in between </p>
-  <p class="text-primary">If you have any doubt anywhere, please call the exam supervisor too seek possible assistance</p>
-  <p class="text-primary">During the exam, do not read aloud either the questions or the answers </p>
-  <p class="text-primary">You are not supposed to mishandle the computer equipment during the exam</p>
-  <p class="text-primary">You can press <b> SUBMIT </b>button once you are done with the exam </p>
-  <p class="text-primary">The exam would end automatically once the allowed duration is completed</p>
-  <p class="text-primary">Please attempt all questions in the Exam</p>
-  <p class="text-primary">You can review your answers during the exam and modify anytime </p>
-  <p class="text-primary">There are no negative marks in the exam </p>
-  <p class="text-primary">If any malpractice is noticed, the Exam supervisor has authority to stop your exam and may ask you to leave the exam center </p>
+          <h5 class="modal-title"><img src="images/icon-instructions.png" class="img-circle"  width="50" height="50"><b style="color: #009999; font-size: x-large;">&nbsp;&nbsp;&nbsp;&nbsp;Instructions</b></h5>
+          </div>
+          <div class="modal-body" style="color: black;">
+           <p class="text-primary">You have to write this exam in one sitting and no breaks are allowed in between. </p>
+  <p class="text-primary">If you have any doubt anywhere, please call the exam supervisor too seek possible assistance.</p>
+  <p class="text-primary">During the exam, do not read aloud either the questions or the answers. </p>
+  <p class="text-primary">You are not supposed to mishandle the computer equipment during the exam.</p>
+  <p class="text-primary">You can press <b> SUBMIT </b>button once you are done with the exam.</p>
+  <p class="text-primary">The exam would end automatically once the allowed duration is completed.</p>
+  <p class="text-primary">Please attempt all questions in the Exam.</p>
+  <p class="text-primary">You can review your answers during the exam and modify anytime. </p>
+  <p class="text-primary">There are no negative marks in the exam .</p>
+  <p class="text-primary">If any malpractice is noticed, the Exam supervisor has authority to stop your exam and may ask you to leave the exam center. </p>
   <p class="text-primary">During the exam, you are not supposed to indulge in any other activities like discussing, disturbing others etc. </p>
         </div>
-        </div>
+        
         
        
       </div>

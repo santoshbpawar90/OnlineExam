@@ -58,9 +58,18 @@ div {
 </head>
 <body>
 <% 
-session.invalidate();
+//session.invalidate();
+
+int uId=0;
+
+if(request.getParameter("uId")!=null && !request.getParameter("uId").trim().equalsIgnoreCase(""))
+{
+	uId=Integer.parseInt(request.getParameter("uId"));
+}
+	
 %>
-<form name="submitpage" onmousemove ="changeHashOnLoad();" >
+<form name="submitpage" action="EndExam.jsp" onmousemove ="changeHashOnLoad();" >
+<input type="hidden" name="uId" value="<%=uId %>">
 <br><br><br><br><br><br><br><br>
 <div class="container">
   
@@ -68,7 +77,9 @@ session.invalidate();
     <div class="panel-heading" align="center" style="background-image: url('../../images/background-image-header-instruction.jpg'); background-size: cover;  ">
     <img src="../../images/icon-ok.png" class="img-circle"  width="50" height="50">
   <h4 style="color: #009999;">  Your result is submitted successfully </h4></div>
-    <div class="panel-body" align="center"><a href="LoginStudent.jsp"><input  type="button" class="btn btn-success" value="End Exam" ></a></div>
+    <div class="panel-body" align="center">
+    <input type="submit" name="submit" value="End Exam" class="btn btn-success">
+    </div>
   </div>
 </div>
 

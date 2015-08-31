@@ -1,3 +1,4 @@
+<%@page import="manipal.onlineexam.admin.dao.TrailDao"%>
 <%@page import="manipal.onlineexam.student.dao.StudentLoginDao"%>
 <%@page import="manipal.onlineexam.student.entity.StudentLogin"%>
 <%@page import="manipal.onlineexam.student.dao.QPackDao"%>
@@ -182,7 +183,9 @@
 		QPack qPack=new QPack();
 		QPackDao qPackDao=new QPackDao();
 		StudentLoginDao studentLoginDao=new StudentLoginDao();
+		TrailDao trailDao=new TrailDao();
 		
+		trailDao.delAllTrail();
 		studentLoginDao.delAllStudent();
 		qPackDao.delAllQpack();
 		
@@ -229,16 +232,17 @@
 			studentLogin.setStudName(eElementStud.getElementsByTagName("Name").item(0).getTextContent());
 			studentLogin.setCollege(eElementStud.getElementsByTagName("College").item(0).getTextContent());
 			studentLogin.setPhotoPath(eElementStud.getElementsByTagName("Image").item(0).getTextContent());
+			//studentLogin.setIpAdd(eElementStud.getElementsByTagName("IpAdd").item(0).getTextContent());
 			
 			if(i%2==0)
 			{
-				studentLogin.setDivMain("Left");
-				studentLogin.setDivMenu("Right");
+				studentLogin.setDivMain("\"position\":\"fixed\",\"left\":\"2px\"");
+				studentLogin.setDivMenu("\"position\":\"fixed\",\"right\":\"2px\"");
 			}
 			else
 			{
-				studentLogin.setDivMain("Right");
-				studentLogin.setDivMenu("Left");
+				studentLogin.setDivMain("\"position\":\"fixed\",\"right\":\"2px\"");
+				studentLogin.setDivMenu("\"position\":\"fixed\",\"left\":\"2px\"");
 			}
 			
 			studentLogin.setLoginStatus("0");
