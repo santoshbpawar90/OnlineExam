@@ -27,21 +27,12 @@
 
 
 
+
+
+
+
+
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -64,7 +55,7 @@ div {
 }
 
 body {
-background-image: url("../../images/background-image-login.jpg"); 
+background-image: url("../../images/backfinal.jpg"); 
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
@@ -79,7 +70,7 @@ background-size: cover;
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     }
 div {
-  opacity: 0.95;
+  opacity: 0.97;
 }
 
 
@@ -156,13 +147,13 @@ window.setInterval(function () {
 <div class="container">
     <div class="row vertical-offset-100">
     	<div class="col-md-4 col-md-offset-4  col-sm-6 col-sm-offset-4">
-    		<div class="panel panel-default">
-			  	<div class="panel-heading" style="background-image: url('../../images/background-image-header-instruction.jpg'); ">
-			  	
-			    	<h3 class="panel-title" style="margin-left: 10%;"><img src="../../images/icon-login.png" class="img-circle"  width="50" height="50" align="center">&nbsp;&nbsp;<font size="20px;" >Sign in </font></h3>
+    		<div class="panel panel-default" align="center">
+			  	<div class="panel-heading" style="background-image: url('../../images/background-image-header-instruction.jpg'); background-size: cover; ">
+			  
+			   	<img src="../../images/icon-login.png" class="img-circle"  width="50" height="50"><h2>Sign in</h2> 
 			 	</div>
 			  	<div class="panel-body">
-			    	<form accept-charset="UTF-8" role="form">
+			    	
                     <fieldset>
 			    	  	<div class="form-group">
 			    		    <input class="form-control" placeholder="Username" name="userName" type="text" required="required">
@@ -176,7 +167,7 @@ window.setInterval(function () {
  <b>  Login  </b> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 </button>
 			    	</fieldset>
-			      	</form>
+			      	
 			    </div>
 			</div>
 		</div>
@@ -185,7 +176,7 @@ window.setInterval(function () {
 <div class="col-md-1"  ></div>
 <div class="col-md-4"></div>
 </div>
-
+</div>
 
 
 		

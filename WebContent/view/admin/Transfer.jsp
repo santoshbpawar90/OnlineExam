@@ -1,3 +1,6 @@
+<%@page import="manipal.onlineexam.student.entity.QPack"%>
+<%@page import="java.util.List"%>
+<%@page import="manipal.onlineexam.student.dao.QPackDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,21 +10,14 @@
 <title>Insert title here</title>
 
 <style type="text/css">
-body {
-background-image: url("../../images/background-admin-login.jpg"); 
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
-background-position: center;
-}
 
 </style>
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
 </head>
 <body>
 
-<link rel="stylesheet" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
+
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../js/jquery.min.js"></script>
 
@@ -65,19 +61,52 @@ xmlhttp.send();
 
 </script>
 
+<br><br><br><br>
+<%
 
+QPackDao qPackDao=new QPackDao();
+List<QPack> packs=qPackDao.getAllQPacks();
+QPack pack=null;
+if(packs!=null)
+{
+	for(QPack qPack:packs)
+	{
+		pack=qPack;
+	}
+}
+
+
+
+%>
 	<div class="panel panel-primary">
   <!-- Default panel contents -->
-  <div class="panel-heading"><b>QPack Management</b></div>
+  <div class="panel-heading" style="background-image: url('../../images/header-background-admin.jpg');"><b>Send Result</b></div>
   <div class="panel-body">
    
- 
+ <br><br>
 
-
+  <div class="form-group">
+	<div class="row">`
+		
+			<div class="col-md-4" align="right"><b style="font-size: medium;">Exam: </b><b style="color: purple;"><%if(pack!=null && pack.getqPackName()!=null){				
+				out.print(pack.getqPackName());
+			} %></b></div>
+				<div class="col-md-3" align="right"><b style="font-size: medium;">Subject: </b><b style="color: purple;"><%if(pack!=null && pack.getSubName()!=null){				
+				out.print(pack.getSubName());
+			} %></b></div>
+			
+	  			
+		</div>
+	</div>
+<hr>
+<div align="left">
+<font size="3px" style="text-align: center;"><b>Please click on "send" button to send the result to the server.</b></font>
+</div>
+<br>
 	<div class="form-group">
 	<div class="row">		
-		  <div class="col-md-2" align="right"></div>
-		  <div class="col-md-4"><b>Send: </b><input type="button" id="download" value="Send" class="btn btn-primary" style="font-weight: bolder;" onclick="showQpackStatus()">    </div>		 
+		  <div class="col-md-5" align="right"></div>
+		  <div class="col-md-4"><input type="button" id="download" value="Send" class="btn btn-primary" style="font-weight: bolder;" onclick="showQpackStatus()">    </div>		 
 	</div>
 	<br>
 	
@@ -89,6 +118,7 @@ xmlhttp.send();
 		  <div class="col-md-2"></div>		   
 		  <div class="col-md-3" align="right"> </div>
 	</div>
+	<br><br><br><br>
 	</div>
 	</div>
 </body>

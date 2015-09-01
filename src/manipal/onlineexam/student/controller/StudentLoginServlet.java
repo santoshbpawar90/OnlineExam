@@ -65,7 +65,7 @@ public class StudentLoginServlet extends HttpServlet {
 		if(studentLogins!=null )
 		for(StudentLogin login:studentLogins)
 		{
-			if(userName.equals(login.getUserName().trim()) && pass.equals(login.getPass().trim()) && login.getPack()!=null && login.getPack().getActivationStatus().equals("1"))
+			if(userName.equals(login.getUserName().trim()) && pass.equals(login.getPass().trim()) && login.getPack()!=null && login.getPack().getActivationStatus().equals("1") && login.getLoginStatus()!=null && login.getLoginStatus().trim().equalsIgnoreCase("0"))
 			{
 				flag=true;
 				id=login.getId();

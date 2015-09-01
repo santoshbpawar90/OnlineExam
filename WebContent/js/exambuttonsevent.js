@@ -40,7 +40,7 @@
 
  		
  		var con=id+"-->"+qid+"-->"+tempVal+"-->"+time+"-->"+studentId+"-->"+prevId;
- 		
+ 		console.log(con);
      	
 	  //----------------------------------------------ajax cade start-------------------------------------------------------
  		var xmlhttp;

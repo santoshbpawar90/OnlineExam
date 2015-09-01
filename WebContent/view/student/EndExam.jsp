@@ -31,7 +31,7 @@ trail.setStudentLogin(login);
 TrailDao dao=new TrailDao();
 dao.addTrail(trail);
 session.invalidate();
-response.sendRedirect("LoginStudent.jsp");
+response.sendRedirect("Feedback.jsp");
 
 %>
 </body>

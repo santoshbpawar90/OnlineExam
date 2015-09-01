@@ -163,7 +163,9 @@ public class StudentSubmitServlet extends HttpServlet {
 		
 		
 		
-		
+		if(finalanwser!=null)
+		{
+			
 		String[] splits=finalanwser.split(",");
 		if(splits!=null)
 		for(int i=2;i<splits.length;i++)
@@ -192,10 +194,10 @@ public class StudentSubmitServlet extends HttpServlet {
 			}
 		}
 
-		
+		}
 		System.out.println("question array-"+questionArray);
 		System.out.println("answer array-"+answerArray);
-		
+		if(questionArray!=null)
 		for(int x=0;x<questionArray.size();x++){
 			Element	questionAnswer=doc.createElement("questionAnswer");	
 			

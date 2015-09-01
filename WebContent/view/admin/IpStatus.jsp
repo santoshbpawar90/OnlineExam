@@ -137,7 +137,7 @@ for(QPack qPack:qPacks)
 <br><br><br>
 <div class="panel panel-primary">
   <!-- Default panel contents -->
-  <div class="panel-heading"><b>Student Details</b></div>
+  <div class="panel-heading" style="background-image: url('../../images/header-background-admin.jpg');"><b>Student Details</b></div>
   <div class="panel-body">
   <br>
    <div class="row">	
@@ -158,7 +158,7 @@ for(QPack qPack:qPacks)
 	  </div>
 	  <div class="col-md-10" align="right">
 	  
-	  	
+	  	<div class="table-responsive">
 	  	<table class="table table-bordered table-hover">
 			<tr class="info">
 				<td align="center"><b>Sr. No</b></td>
@@ -184,7 +184,7 @@ for(QPack qPack:qPacks)
 				for(StudentLogin studentLogin: studentLogins)
 				{
 						%>
-						<tr>
+						<tr class="active">
 						<td align="center"><%=++count %></td>
 						<td align="center"><%=studentLogin.getStudId() %></td>
 						<td align="center"><%=studentLogin.getUserName() %></td>
@@ -193,8 +193,8 @@ for(QPack qPack:qPacks)
 						<td align="center"><%
 								try {
 								    InetAddress address = InetAddress.getByName(studentLogin.getIpAdd());
-								   out.print(address.getHostName());
-								   out.print("<BR>"+address.getHostAddress());
+								  /*  out.print(address.getHostName());
+								   out.print("<BR>"+address.getHostAddress()); */
 								   //out.print("<BR>"+address.getCanonicalHostName());
 								    if(address.isReachable(10000)){
 								    	out.println("<b style='color: green;'>Active</b>" );
@@ -226,6 +226,7 @@ for(QPack qPack:qPacks)
 			
 			%>
 		</table>
+		</div>
 		<div class="col-md-1" align="right">
 		</div>
 	</div>

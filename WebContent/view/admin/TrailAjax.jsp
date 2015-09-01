@@ -27,7 +27,7 @@
 		}
 		
 		
-		System.out.print(trail);
+		System.out.print("\n\n\n\n"+trail+"\n\n\n\n");
 		
 		 TrailDao trailDao=new TrailDao();
 		

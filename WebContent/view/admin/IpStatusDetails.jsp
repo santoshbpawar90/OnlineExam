@@ -1,3 +1,4 @@
+<%@page import="manipal.onlineexam.util.SPConstants"%>
 <%@page import="java.util.Date"%>
 <%@page import="manipal.onlineexam.student.entity.StudentLogin"%>
 <%@page import="manipal.onlineexam.student.dao.StudentLoginDao"%>
@@ -21,6 +22,22 @@
 <body>
 
 <%
+
+int seconds=60;
+if(SPConstants.getInstance().getSpProperty("refresh.time")!=null)
+{
+	try
+	{
+	seconds=Integer.parseInt(SPConstants.getInstance().getSpProperty("refresh.time"));
+	}
+	catch(NumberFormatException exception)
+	{
+		exception.printStackTrace();
+		seconds=60;
+	}
+}
+
+response.setIntHeader("Refresh", seconds);
 
 int id=0;
 if(request.getParameter("id")!=null)

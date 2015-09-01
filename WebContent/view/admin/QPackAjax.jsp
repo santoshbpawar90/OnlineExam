@@ -232,7 +232,7 @@
 			studentLogin.setStudName(eElementStud.getElementsByTagName("Name").item(0).getTextContent());
 			studentLogin.setCollege(eElementStud.getElementsByTagName("College").item(0).getTextContent());
 			studentLogin.setPhotoPath(eElementStud.getElementsByTagName("Image").item(0).getTextContent());
-			//studentLogin.setIpAdd(eElementStud.getElementsByTagName("IpAdd").item(0).getTextContent());
+			studentLogin.setIpAdd(eElementStud.getElementsByTagName("IpAdd").item(0).getTextContent());
 			
 			if(i%2==0)
 			{

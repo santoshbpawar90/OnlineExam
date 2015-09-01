@@ -85,7 +85,7 @@ function myFunction() {
 	<br>
 	<div class="panel panel-primary">
   <!-- Default panel contents -->
-  <div class="panel-heading"><b>QPack Management</b></div>
+  <div class="panel-heading" style="background-image: url('../../images/header-background-admin.jpg');"><b>QPack Management</b></div>
   <div class="panel-body " id="bg" >
    
  
@@ -93,14 +93,14 @@ function myFunction() {
 
 	<div class="form-group">
 	<div class="row">		
-		  <div class="col-md-2" align="right"></div>
+		  <div class="col-md-3" align="right"></div>
 		  <div class="col-md-4"><b>QPack download Status: </b><input type="button" id="download" value="Download QPack" class="btn btn-primary" style="font-weight: bolder;" onclick="showQpackStatus()">    </div>
 		   <div class="col-md-3" align="left"  style="color: blue; font-size: medium;font-weight: bold;"></div>
-		  <div class="col-md-3" align="right"> <input type="button" value="Refresh" onclick="myFunction()" style="font-weight: bolder;" class="btn btn-primary" ></div>
+		  <div class="col-md-3" align="right"> </div>
 	</div>
 	<br>
 	<div class="row">		
-		  <div class="col-md-4" align="right"></div>
+		  <div class="col-md-5" align="right"></div>
 		  <div class="col-md-3" align="left" id="myDivQPack" style="color: blue; font-size: medium;font-weight: bold;"></div>
 		  <div class="col-md-2"></div>		   
 		  <div class="col-md-3" align="right"> </div>
@@ -118,14 +118,14 @@ function myFunction() {
 	  <div class="col-md-4"><input type="button" value="Force DownLoad QPack" class="btn btn-primary" ></div>
 	 </div>
 	</div> -->
-	<br>
+	
 	
 	<hr>
-<br>
+
 
 <div class="panel panel-primary">
   <!-- Default panel contents -->
-  <div class="panel-heading"><b>Available QPack</b></div>
+  <div class="panel-heading" style="background-image: url('../../images/header-background-admin.jpg');"><b>Available QPack</b></div>
   <div class="panel-body" >
   <br>
 <form action="../../ActivatePack" method="post">
@@ -133,8 +133,8 @@ function myFunction() {
 	<div class="row">	
 	<div class="col-md-4" align="right"></div>
 	  <div class="col-md-5" align="right"></div>
-	  <div class="col-md-3" ><b>Activate Exam:</b> <input type="submit"  value="Activate" name="Activate" style="font-weight: bolder;" class="btn btn-success" >
-	  
+	  <div class="col-md-3" > <input type="submit"  value="Activate" name="Activate" style="font-weight: bolder;" class="btn btn-success" >
+	  <input type="button" value="Refresh" onclick="myFunction()" style="font-weight: bolder;" class="btn btn-primary" >
 	  </div>
 	 </div>
 	</div>
@@ -143,9 +143,9 @@ function myFunction() {
 	  </div>
 	  <div class="col-md-10" align="right">
 	  
-	  	
+	  	<div class="table-responsive">
 	  	<table class="table table-bordered table-hover">
-			<tr class="success">
+			<tr class="info">
 				<td align="center" ><b>Select</b></td>
 				<td align="center"><b>Exam</b></td>
 				<td align="center"><b>Subject</b></td>
@@ -183,6 +183,7 @@ function myFunction() {
 			
 			%>
 		</table>
+		</div>
 		<div class="col-md-1" align="right">
 		</div>
 	</div>
@@ -194,6 +195,7 @@ function myFunction() {
 	
 	
 	 </div>  
+	 </div>
 </div>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<%@page import="manipal.onlineexam.util.SPConstants"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="manipal.onlineexam.student.dao.QPackDao"%>
 <%@page import="manipal.onlineexam.student.entity.QPack"%>
@@ -21,6 +22,26 @@
 </head>
 <body>
 <% 
+
+
+int seconds=60;
+if(SPConstants.getInstance().getSpProperty("refresh.time")!=null)
+{
+	try
+	{
+	seconds=Integer.parseInt(SPConstants.getInstance().getSpProperty("refresh.time"));
+	}
+	catch(NumberFormatException exception)
+	{
+		exception.printStackTrace();
+		seconds=60;
+	}
+}
+
+response.setIntHeader("Refresh", seconds);
+
+
+
 QPackDao qPackDao=new QPackDao();
 List<QPack> packs=qPackDao.getAllQPacks();
 QPack pack=null;
@@ -38,7 +59,7 @@ if(packs!=null)
 	
 	<div class="panel panel-primary">
   <!-- Default panel contents -->
-  <div class="panel-heading"><b style="font-size: medium;">System Monitor</b></div>
+  <div class="panel-heading" style="background-image: url('../../images/header-background-admin.jpg');"><b style="font-size: medium;">System Monitor</b></div>
   <div class="panel-body"  >
    
    <div class="form-group">
@@ -95,7 +116,7 @@ if(packs!=null)
 	<div class="row">	
 	<div class="col-md-4" align="right"></div>
 	  <div class="col-md-4" align="right">
-	  	
+	  	<div class="table-responsive">
 	  	<table class="table table-bordered table-hover">
 			<tr class="info">
 				<td width="350" style="font-size: medium;"><b>No of Students Expected</b></td>
@@ -135,6 +156,7 @@ if(packs!=null)
 				<td></td>
 			</tr> -->
 		</table>
+		</div>
 		<br><br>
 	  	<div class="col-md-3" align="right"></div>
 	  </div>
@@ -150,7 +172,7 @@ if(packs!=null)
 	 </div>
 	 
 	</div>
-	<br>
+
 </div></div>
 </body>
 </html>

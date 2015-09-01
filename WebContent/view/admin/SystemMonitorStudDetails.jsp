@@ -1,3 +1,5 @@
+
+<%@page import="manipal.onlineexam.util.SPConstants"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="manipal.onlineexam.student.entity.StudentLogin"%>
 <%@page import="java.util.List"%>
@@ -15,11 +17,28 @@
 <%@include file="QPackMain.jsp" %>
 </head>
 <body>
+<%
+int seconds=60;
+if(SPConstants.getInstance().getSpProperty("refresh.time")!=null)
+{
+	try
+	{
+	seconds=Integer.parseInt(SPConstants.getInstance().getSpProperty("refresh.time"));
+	}
+	catch(NumberFormatException exception)
+	{
+		exception.printStackTrace();
+		seconds=60;
+	}
+}
 
+response.setIntHeader("Refresh", seconds);
+
+%>
 <br><br><br>
 <div class="panel panel-primary">
   <!-- Default panel contents -->
-  <div class="panel-heading"><b>Student Details</b></div>
+  <div class="panel-heading" style="background-image: url('../../images/header-background-admin.jpg');"><b>Student Details</b></div>
   <div class="panel-body">
   <br>
    <div class="row">	
@@ -36,7 +55,7 @@
 	  </div>
 	  <div class="col-md-10" align="right">
 	  
-	  	
+	  	<div class="table-responsive">
 	  	<table class="table table-bordered table-hover">
 			<tr class="info">
 				<td align="center"><b>Sr. No</b></td>
@@ -46,7 +65,7 @@
 				<td align="center"><b>College</b></td>
 				<td align="center"><b>Login Date & Time</b></td>
 				<td align="center"><b>Login Status</b></td>
-				<td align="center"><b>Result</b></td>
+				<!-- <td align="center"><b>Result</b></td> -->
 				
 			</tr>
 			
@@ -62,7 +81,7 @@
 				for(StudentLogin studentLogin: studentLogins)
 				{
 						%>
-						<tr>
+						<tr class="active">
 						<td align="center"><%=++count %></td>
 						<td align="center"><%=studentLogin.getStudId() %></td>
 						<td align="center"><%=studentLogin.getUserName() %></td>
@@ -75,7 +94,7 @@
 					} %>
 						</td>
 						<td align="center"><%if(studentLogin.getLoginStatus()!=null && studentLogin.getLoginStatus().equals("1") ){out.print("Logged In.");}else if(studentLogin.getLoginStatus()!=null && studentLogin.getLoginStatus().equals("2") ){out.print("Logged Out.");}else{out.print("Not Logged In.");}  %></td>
-						<td align="center"> <a href=ShowResult.jsp?path=<%=studentLogin.getId()%>>Show</a> </td>						
+						<%-- <td align="center"> <a href=ShowResult.jsp?path=<%=studentLogin.getId()%>>Show</a> </td> --%>						
 						</tr>
 						<%	
 					
@@ -86,6 +105,7 @@
 			
 			%>
 		</table>
+		</div>
 		<div class="col-md-1" align="right">
 		</div>
 	</div>

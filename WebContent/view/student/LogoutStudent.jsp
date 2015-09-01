@@ -44,12 +44,12 @@ div {
 }
 
 body {
- background-image: url("../../images/background-end-exam.jpg"); 
+ background-image: url("../../images/backfinal.jpg"); 
 -webkit-background-size: cover;
 background-repeat: no-repeat;
 -moz-background-size: cover;
 -o-background-size: cover;
-background-size: auto;
+background-size: cover;
 }
 div {
   opacity: 0.93;

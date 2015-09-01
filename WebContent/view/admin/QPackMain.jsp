@@ -18,7 +18,7 @@
 <br>
 
 <form action="Logout.jsp">
- <div class="col-md-12"  align="right"><input type="submit"  value="Logout" style="font-weight: bolder;" class="btn btn-primary" ></div>
+ <div class="col-md-12"  align="right" style="padding-top: 10px;"><input type="submit"  value="Logout" style="font-weight: bolder;" class="btn btn-primary" ></div>
   </form>
 <ul class="nav nav-tabs" style="background-image: url('../../images/header-background-admin.jpg'); ">
   <li role="presentation" ><a href="QPack.jsp" style="color: black;"><b>QPack Management</b></a></li>

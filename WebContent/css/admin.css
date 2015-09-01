@@ -8,3 +8,8 @@ background-image: url("../../images/background-admin-login.jpg");
 background-size: cover;
 background-position: center;
 }
+
+
+#myPanel{
+	style="background-image: url('../../images/header-background-admin.jpg');"
+}

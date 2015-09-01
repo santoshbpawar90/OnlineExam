@@ -219,7 +219,7 @@ ServerSocket serverSocket=null;
 Socket socket =null;
 
 try {
-	  serverSocket = new ServerSocket(5345);
+	  serverSocket = new ServerSocket(5346);
 	  System.out.print("Conneting");
 	  socket = serverSocket.accept();
 	  InputStream is = socket.getInputStream();

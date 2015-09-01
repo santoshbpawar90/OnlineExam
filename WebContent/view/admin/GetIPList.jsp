@@ -225,14 +225,14 @@ int count=0;
 					    InetAddress address = InetAddress.getByName(cmpName);
 					  
 				%>
-				<tr>
+				<tr class="active">
 				<td align="center"><%=++count %></td>
 				
 				<td align="center"><%=cmpName %></td>
 				<td align="center"><%=address.getHostAddress() %></td>
 				<td align="center"><%
 						
-				 if(address.isReachable(2000)){
+				 if(address.isReachable(3000)){
 				    	out.println("<b style='color: green;'>Active</b>" );
 				    }else{
 				    	out.println("<b style='color: red;'>Inactive</b>" );
